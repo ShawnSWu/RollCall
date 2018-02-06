@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="@color/AppBackgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/create_group_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_green"/>
+
+        <LinearLayout
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="0dp"
+                android:paddingEnd="8dp"
+                android:src="@mipmap/icon_group"
+                android:contentDescription="@string/groupname"/>
+
+            <EditText
+                android:id="@+id/edit_account"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/groupname"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textColor="@color/theme_gray"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:text="@string/select_image_uri"/>
+
+
+        <ScrollView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:id="@+id/group_image_selector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

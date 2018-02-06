@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="AppBackgroundColor">#24313c</color>
+
+    <color name="error_red">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="theme_black">#353244</color>
+    <color name="theme_green">#1ab188</color>
+    <color name="theme_gray">#435159</color>
+
+    <color name="btn_press_green">#1ba07c</color>
+
+    <color name="bottom_white">#ededed</color>
+    <color name="bottom_gray">#848080</color>
+</resources>

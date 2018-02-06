@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">NewRollCall</string>
+    <string name="account">Account</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="forgot_password">Forget Password</string>
+    <string name="log_in">Log in</string>
+    <string name="log_in_error_message">Your account or password is incorrect</string>
+    <string name="sign_up_error_message_already_exists">The Email already exists!!</string>
+
+    <string name="sign_up">Sign up</string>
+    <string name="sign_up_success">Sign up Success</string>
+    <string name="email">Email</string>
+    <string name="email_format_error">The email is not in the correct format</string>
+    <string name="password_format_error">密碼不得小於8個字元或不能有空白</string>
+    <string name="confirm_password_error">兩次輸入的密碼不同</string>
+    <string name="username_format_error">使用者名稱不得小於3個字元或不能有空白</string>
+    <string name="username">User Name</string>
+    <string name="please_wait">Please wait..</string>
+
+    <string name="home">Home</string>
+    <string name="group">Group</string>
+    <string name="group_list_name">Group Name</string>
+
+    <string name="group_count">團數</string>
+    <string name="people_count">人數：</string>
+    <string name="drive_count">裝置數量</string>
+    <string name="profile_image">個人頭像</string>
+    <string name="profile_setting">個人設置</string>
+    <string name="drive_setting">裝置設置</string>
+    <string name="group_setting">團隊設置</string>
+
+    <string name="group_delete">刪除</string>
+
+    <string name="empty_icon_string">您還沒有任何旅遊團</string>
+    <string name="groupname">團隊名稱</string>
+    <string name="select_image_uri">選擇團隊圖示</string>
+    <string name="create_group_title">創建團隊</string>
+    <string name="create_group">新增</string>
+
+    <string name="test_number">87</string>
+
+
+
+    <string name="log_out">登出</string>
+
+
+
+    <string name="roll_call">R o l l C a l l</string>
+</resources>
