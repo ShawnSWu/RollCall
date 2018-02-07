@@ -13,7 +13,7 @@ import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoType;
 
 public class GroupListInfoStore extends Store {
 
-    private static int select_image_position = -1;
+    private static int select_image_position = 0;
 
 
     @Override
@@ -34,6 +34,8 @@ public class GroupListInfoStore extends Store {
             case GroupListInfoType.CREATE_GROUP:
                 emitted(fluxAction);
                 break;
+
+
 
 
         }

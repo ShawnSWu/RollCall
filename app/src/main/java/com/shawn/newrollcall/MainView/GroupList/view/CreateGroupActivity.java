@@ -19,6 +19,7 @@ import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoType;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.databinding.ActivityCreateGroupBinding;
 import com.shawn.newrollcall.login.view.LodingFactory;
+import com.shawn.newrollcall.util.InputUtil;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,7 @@ public class CreateGroupActivity extends AppBaseActivity {
     private int selected_position = -1;
     private ArrayList<CreateGroupImageSelectorItem> list = new ArrayList<>();
     private static KProgressHUD lodingview;
+    private String account;
 
     private ArrayList<CreateGroupImageSelectorItem> getImageList(){
         list.add(new CreateGroupImageSelectorItem(R.mipmap.defult_card_iamge ,"https://i.imgur.com/G16NNos.jpg"));
@@ -55,6 +57,7 @@ public class CreateGroupActivity extends AppBaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(this);
 
 
         groupImageSelectorAdapter = new CreateGroupImageSelectorAdapter(getImageList());
@@ -90,12 +93,11 @@ public class CreateGroupActivity extends AppBaseActivity {
                 String listname = binding.editAccount.getText().toString();
                 String group_image_uri = list.get(selected_position).getImage_uri();
 
-                if(!listname.contains(" ") && listname.length()>0 ){
+                if(InputUtil.checkEmpty(listname)) {
                     AppFluxCenter.getActionCreator().getGroupListInfoCreator().createGroup(account,listname,group_image_uri);
                 }else{
-                    Toast.makeText(this,"團隊名稱不能有空白",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,getResources().getString(R.string.group_name_not_allow_blank),Toast.LENGTH_SHORT).show();
                 }
-
                 break;
 
         }
@@ -121,15 +123,14 @@ public class CreateGroupActivity extends AppBaseActivity {
 
             case GroupListInfoType.CREATE_GROUP_SUCCESS:
                 lodingview.dismiss();
-                String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(this);
-                AppFluxCenter.getActionCreator().getGroupListInfoCreator().getGroupListInfomation(account);
-                Toast.makeText(this,"創建成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,getResources().getString(R.string.create_success),Toast.LENGTH_SHORT).show();
                 finish();
+                AppFluxCenter.getActionCreator().getGroupListInfoCreator().getGroupListInfomation(account);
                 break;
 
             case GroupListInfoType.CREATE_GROUP_FAIL:
                 lodingview.dismiss();
-                Toast.makeText(this,"創建失敗",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,getResources().getString(R.string.create_fail),Toast.LENGTH_SHORT).show();
                 break;
 
         }

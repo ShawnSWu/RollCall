@@ -18,4 +18,8 @@ public final class InputUtil {
         return str.length() >= limitLength && !str.contains(" ");
     }
 
+    public static boolean checkEmpty(String str){
+        return !str.contains(" ") && str.length() > 0;
+    }
+
 }
