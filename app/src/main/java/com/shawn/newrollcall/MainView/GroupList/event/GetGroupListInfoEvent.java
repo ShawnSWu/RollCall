@@ -1,21 +1,17 @@
 package com.shawn.newrollcall.MainView.GroupList.event;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
-
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
-import com.shawn.newrollcall.MainView.Profile.event.UserInfo;
-
 import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Shawn Wu on 2018/2/3.
+ * Created by Shawn Wu on 2017/12/3.
+ *
  */
 
 public class GetGroupListInfoEvent extends BackEndAPI {

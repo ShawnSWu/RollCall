@@ -6,14 +6,12 @@ import android.util.Log;
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
-import com.shawn.newrollcall.Signup.action.SignUpActionType;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Shawn Wu on 2018/1/30.
+ * Created by Shawn Wu on 2017/11/30.
  */
 
 public class SignUpEvent extends BackEndAPI {

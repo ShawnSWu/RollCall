@@ -1,7 +1,7 @@
 package com.shawn.newrollcall.MainView.GroupList.view;
 
 /**
- * Created by Shawn Wu on 2018/2/5.
+ * Created by Shawn Wu on 2017/12/5.
  *
  */
 

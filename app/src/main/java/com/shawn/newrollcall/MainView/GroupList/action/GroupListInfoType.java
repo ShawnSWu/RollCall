@@ -1,7 +1,8 @@
 package com.shawn.newrollcall.MainView.GroupList.action;
 
 /**
- * Created by Shawn Wu on 2018/2/3.
+ * Created by Shawn Wu on 2017/12/3.
+ *
  */
 
 public interface GroupListInfoType {

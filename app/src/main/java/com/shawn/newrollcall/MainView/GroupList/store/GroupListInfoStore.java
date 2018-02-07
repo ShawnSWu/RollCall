@@ -1,13 +1,11 @@
 package com.shawn.newrollcall.MainView.GroupList.store;
 
-import android.util.Log;
-
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoType;
 
 /**
- * Created by Shawn Wu on 2018/2/3.
+ * Created by Shawn Wu on 2017/12/3.
  *
  */
 

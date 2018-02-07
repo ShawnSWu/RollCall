@@ -1,7 +1,5 @@
 package com.shawn.newrollcall.login.store;
 
-import android.util.Log;
-
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.login.action.LoginAPIActionType;

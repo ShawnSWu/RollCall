@@ -1,13 +1,9 @@
 package com.shawn.newrollcall.MainView.GroupList.event;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
-
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
-
-import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
 import retrofit2.Call;
@@ -15,7 +11,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Shawn Wu on 2018/2/6.
+ * Created by Shawn Wu on 2017/12/6.
  *
  */
 

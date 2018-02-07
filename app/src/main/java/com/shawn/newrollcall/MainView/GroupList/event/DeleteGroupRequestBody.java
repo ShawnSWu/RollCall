@@ -3,7 +3,7 @@ package com.shawn.newrollcall.MainView.GroupList.event;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 
 /**
- * Created by Shawn Wu on 2018/2/6.
+ * Created by Shawn Wu on 2017/12/6.
  *
  */
 

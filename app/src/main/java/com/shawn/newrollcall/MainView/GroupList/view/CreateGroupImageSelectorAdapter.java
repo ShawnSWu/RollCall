@@ -4,13 +4,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.shawn.newrollcall.R;
-
 import java.util.ArrayList;
 
 /**
- * Created by Shawn Wu on 2018/2/5.
+ * Created by Shawn Wu on 2017/12/5.
  *
  */
 

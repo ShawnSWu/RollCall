@@ -1,9 +1,9 @@
 package com.shawn.newrollcall.MainView.GroupList.view;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,11 +11,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
-import com.shawn.newrollcall.MainView.GroupList.event.DeleteGroupEvent;
 import com.shawn.newrollcall.R;
 
 /**
- * Created by Shawn Wu on 2018/2/2.
+ * Created by Shawn Wu on 2017/12/2.
+ *
  */
 
 public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -83,10 +83,9 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
         switch (view.getId()) {
 
             case CHECKBOX:
-                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
                 AppFluxCenter.getActionCreator().getGroupListInfoCreator().updateSelectGroup(selectPosition);
-
                 AppFluxCenter.getActionCreator().getSharedPreferencesCreator().saveGroupName(view.getContext(),groupListName);
+                Snackbar.make(view,"點名團隊:"+groupListName,Snackbar.LENGTH_LONG).show();
                 break;
 
 

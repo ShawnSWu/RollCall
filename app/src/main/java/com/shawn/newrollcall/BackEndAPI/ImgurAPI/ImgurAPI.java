@@ -7,7 +7,8 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
- * Created by Shawn Wu on 2018/2/1.
+ * Created by Shawn Wu on 2017/12/1.
+ *
  */
 
 public interface ImgurAPI {

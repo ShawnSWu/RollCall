@@ -1,7 +1,6 @@
 package com.shawn.newrollcall.BackEndAPI.ImgurAPI;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 

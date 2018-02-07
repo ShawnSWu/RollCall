@@ -9,7 +9,8 @@ import com.shawn.newrollcall.MainView.GroupList.event.GetGroupListResponse;
 import java.util.ArrayList;
 
 /**
- * Created by Shawn Wu on 2018/2/3.
+ * Created by Shawn Wu on 2017/12/3.
+ *
  */
 
 public class GroupListInfoCreator extends FluxActionCreator {

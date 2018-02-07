@@ -1,11 +1,9 @@
 package com.shawn.newrollcall.MainView.Home.view;
 
 
-
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,8 @@ import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.databinding.FragmentMainBinding;
 
 /**
- * Created by Shawn Wu on 2018/1/31.
+ * Created by Shawn Wu on 2017/11/31.
+ *
  */
 
 public class MainFragment extends AppBaseFragment implements View.OnClickListener{

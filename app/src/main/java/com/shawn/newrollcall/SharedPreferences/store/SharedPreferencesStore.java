@@ -8,8 +8,6 @@ import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.SharedPreferences.action.SharedPreferencesActionType;
 
-import java.util.Set;
-
 /**
  * Created by Shawn Wu on 2017/11/30.
  *

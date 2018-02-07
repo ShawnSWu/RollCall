@@ -1,12 +1,11 @@
 package com.shawn.newrollcall.Signup.action;
 
-import android.util.Log;
-
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.Signup.Event.SignUpEvent;
 
 /**
- * Created by Shawn Wu on 2018/1/30.
+ * Created by Shawn Wu on 2017/11/30.
+ *
  */
 
 public class SignUpCreator extends FluxActionCreator {

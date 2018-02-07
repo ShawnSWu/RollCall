@@ -1,7 +1,8 @@
 package com.shawn.newrollcall.BackEndAPI.ImgurAPI;
 
 /**
- * Created by Shawn Wu on 2018/2/1.
+ * Created by Shawn Wu on 2017/12/1.
+ *
  */
 
 public class UploadImageRespose {

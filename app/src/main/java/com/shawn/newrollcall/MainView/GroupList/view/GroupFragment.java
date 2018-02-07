@@ -8,17 +8,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
-import com.shawn.newrollcall.Intentcenter.action.IntentCenterActionsCreator;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoType;
 import com.shawn.newrollcall.MainView.GroupList.event.GetGroupListResponse;
 import com.shawn.newrollcall.R;

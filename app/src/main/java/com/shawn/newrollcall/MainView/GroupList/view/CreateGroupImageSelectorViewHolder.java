@@ -1,19 +1,17 @@
 package com.shawn.newrollcall.MainView.GroupList.view;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
-import com.bumptech.glide.Glide;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.R;
 
 import java.util.ArrayList;
 
 /**
- * Created by Shawn Wu on 2018/2/5.
+ * Created by Shawn Wu on 2017/12/5.
  *
  */
 
