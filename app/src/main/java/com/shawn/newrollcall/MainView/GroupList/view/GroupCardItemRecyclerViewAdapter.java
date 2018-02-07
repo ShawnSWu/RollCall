@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.MainView.GroupList.event.GetGroupListResponse;
 import com.shawn.newrollcall.R;
 
@@ -40,6 +41,9 @@ public class GroupCardItemRecyclerViewAdapter extends RecyclerView.Adapter<Group
         holder.setGroupListName(groupCardItem.getListname());
         holder.setPeople_count(groupCardItem.getPeople_count());
         holder.setDefalut_image(groupCardItem.getGroup_image_uri());
+        holder.setCheckBox(position);
+
+
     }
 
     @Override

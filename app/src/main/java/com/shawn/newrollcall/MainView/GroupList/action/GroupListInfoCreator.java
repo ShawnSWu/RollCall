@@ -46,5 +46,13 @@ public class GroupListInfoCreator extends FluxActionCreator {
         addAction(newAction(GroupListInfoType.DELETE_GROUP_SUCCESS));
     }
 
+    public void setSelectImagePositionZero() {
+        addAction(newAction(GroupListInfoType.SETSELECTIMAGEPOSITIONZERO));
+    }
+
+    public void updateSelectGroup(int position) {
+        addAction(newAction(GroupListInfoType.UPDATE_SELECT_GROUP,position));
+    }
+
 
 }

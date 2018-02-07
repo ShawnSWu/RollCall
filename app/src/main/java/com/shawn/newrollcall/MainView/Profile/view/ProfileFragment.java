@@ -94,11 +94,11 @@ public class ProfileFragment extends AppBaseFragment implements View.OnClickList
                 break;
 
             case PROFILESETTING:
-                Toast.makeText(getContext(),"Comming soon",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
                 break;
 
             case DRIVESETTING:
-                Toast.makeText(getContext(),"Comming soon",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
                 break;
 
             case PROFILE_IMAGE:

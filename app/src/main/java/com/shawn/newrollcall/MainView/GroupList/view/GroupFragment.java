@@ -142,6 +142,10 @@ public class GroupFragment extends AppBaseFragment {
                     lodingview.show();
                 }
                 break;
+
+            case GroupListInfoType.UPDATE_SELECT_GROUP:
+                groupCardItemRecyclerViewAdapter.notifyDataSetChanged();
+                break;
         }
 
     }

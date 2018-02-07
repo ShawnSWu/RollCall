@@ -6,8 +6,6 @@
         android:drawable="@drawable/icon_account"
         />
 
-    <!-- default -->
-
     <item
         android:state_checked="false"
         android:drawable="@drawable/icon_arrow"

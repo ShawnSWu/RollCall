@@ -17,13 +17,17 @@ import java.util.Set;
 
 public class SharedPreferencesStore extends Store {
 
+    private Activity activity;
+    private Context context;
+    private SharedPreferences setting;
+
     @Override
     public void onFluxActionHandling(FluxAction fluxAction) {
 
         switch (fluxAction.getType()) {
 
             case SharedPreferencesActionType.SAVE_ACCOUNT:
-                Activity activity = (Activity) fluxAction.getData()[0];
+                activity = (Activity) fluxAction.getData()[0];
                 String account = (String)fluxAction.getData()[1];
                 String password = (String)fluxAction.getData()[2];
 
@@ -34,19 +38,36 @@ public class SharedPreferencesStore extends Store {
                         .apply();
                 break;
 
+
+            case SharedPreferencesActionType.SAVEGROUPNAME:
+                context = (Context) fluxAction.getData()[0];
+                String groupName = (String)fluxAction.getData()[1];
+
+                setting = context.getSharedPreferences(SharedPreferencesActionType.ACCOUNT,Context.MODE_PRIVATE);
+                setting.edit()
+                        .putString(SharedPreferencesActionType.SAVEGROUPNAME,groupName)
+                        .apply();
+                break;
+
         }
 
     }
 
 
     public String getSavedAccount(Context context){
-        SharedPreferences setting = context.getSharedPreferences(SharedPreferencesActionType.ACCOUNT,Context.MODE_PRIVATE);
-        return setting.getString(SharedPreferencesActionType.SAVE_ACCOUNT,"");
+        return getSharedPreferencesData(context,SharedPreferencesActionType.SAVE_ACCOUNT);
     }
 
     public String getSavedPassword(Context context){
-        SharedPreferences setting = context.getSharedPreferences(SharedPreferencesActionType.ACCOUNT,Context.MODE_PRIVATE);
-        return setting.getString(SharedPreferencesActionType.SAVE_PASSWORD,"");
+        return getSharedPreferencesData(context,SharedPreferencesActionType.SAVE_PASSWORD);
     }
 
+    public String getGroupName(Context context){
+        return getSharedPreferencesData(context,SharedPreferencesActionType.SAVEGROUPNAME);
+    }
+
+    private String getSharedPreferencesData(Context context,String type){
+        SharedPreferences setting = context.getSharedPreferences(SharedPreferencesActionType.ACCOUNT,Context.MODE_PRIVATE);
+        return setting.getString(type,"");
+    }
 }

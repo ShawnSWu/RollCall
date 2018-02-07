@@ -91,12 +91,18 @@ public class CreateGroupActivity extends AppBaseActivity {
             case R.id.action_create_group:
                 String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(this);
                 String listname = binding.editAccount.getText().toString();
-                String group_image_uri = list.get(selected_position).getImage_uri();
+                String group_image_uri;
 
-                if(InputUtil.checkEmpty(listname)) {
-                    AppFluxCenter.getActionCreator().getGroupListInfoCreator().createGroup(account,listname,group_image_uri);
+                if(AppFluxCenter.getStore().getGroupListInfoStore().getSelectImagePosition() == -1) {
+                    Toast.makeText(this,getResources().getString(R.string.please_select_image),Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(this,getResources().getString(R.string.group_name_not_allow_blank),Toast.LENGTH_SHORT).show();
+                    if(InputUtil.checkEmpty(listname)) {
+                        group_image_uri = list.get(selected_position).getImage_uri();
+                        AppFluxCenter.getActionCreator().getGroupListInfoCreator().createGroup(account,listname,group_image_uri);
+                        AppFluxCenter.getActionCreator().getGroupListInfoCreator().setSelectImagePositionZero();
+                    }else{
+                        Toast.makeText(this,getResources().getString(R.string.group_name_not_allow_blank),Toast.LENGTH_SHORT).show();
+                    }
                 }
                 break;
 

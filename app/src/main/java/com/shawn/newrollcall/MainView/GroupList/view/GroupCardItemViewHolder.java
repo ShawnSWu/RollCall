@@ -27,7 +27,7 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
     private String groupListName;
     private final int CHECKBOX = 0 ,GROUPCARDVIEW = 1,CARDSETTING = 2, DELETEGROUP = 3;
 
-    private boolean isChoice = false;
+    private int selectPosition = -1;
 
     private View itemView;
 
@@ -43,6 +43,16 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
 
     public void setDefalut_image(String  defalut_image_Uri) {
         Glide.with(itemView).load(defalut_image_Uri).thumbnail(0.1f).into(defalut_image);
+    }
+
+    public void setCheckBox(int selectPosition){
+        this.selectPosition = selectPosition;
+        if(AppFluxCenter.getStore().getGroupListInfoStore().getSelectGroupPosition() == selectPosition){
+            checkBox.setChecked(true);
+        }else{
+            checkBox.setChecked(false);
+        }
+
     }
 
     public GroupCardItemViewHolder(View itemView) {
@@ -73,17 +83,20 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
         switch (view.getId()) {
 
             case CHECKBOX:
-                Toast.makeText(view.getContext(),"Comming soon",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                AppFluxCenter.getActionCreator().getGroupListInfoCreator().updateSelectGroup(selectPosition);
+
+                AppFluxCenter.getActionCreator().getSharedPreferencesCreator().saveGroupName(view.getContext(),groupListName);
                 break;
 
 
             case GROUPCARDVIEW:
-                Toast.makeText(view.getContext(),"Comming soon",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
                 break;
 
 
             case CARDSETTING:
-                Toast.makeText(view.getContext(),"Comming soon",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
                 break;
 
             case DELETEGROUP:

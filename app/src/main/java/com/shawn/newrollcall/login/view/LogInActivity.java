@@ -78,7 +78,7 @@ public class LogInActivity extends AppBaseActivity implements View.OnClickListen
                 break;
 
             case FORGOT_PASSWORD:
-                Toast.makeText(this,"Coming soon",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
                 break;
         }
 
