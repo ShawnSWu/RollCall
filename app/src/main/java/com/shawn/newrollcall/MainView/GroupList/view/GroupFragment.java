@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gun0912.tedpermission.PermissionListener;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
@@ -21,6 +24,7 @@ import com.shawn.newrollcall.MainView.GroupList.event.GetGroupListResponse;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.databinding.FragmentGroupBinding;
 import com.shawn.newrollcall.login.view.LodingFactory;
+import com.shawn.newrollcall.util.PermissionUtil;
 
 import java.util.ArrayList;
 
@@ -68,7 +72,7 @@ public class GroupFragment extends AppBaseFragment {
         binding.createGroupFab.setColorNormal(getResources().getColor(R.color.theme_green));
         binding.createGroupFab.setColorPressed(getResources().getColor(R.color.btn_press_green));
         binding.createGroupFab.setColorRipple(getResources().getColor(R.color.AppBackgroundColor));
-        binding.createGroupFab.setOnClickListener(getCcreateGroupFabListener());
+        binding.createGroupFab.setOnClickListener(getCreateGroupFabListener());
 
         return binding.getRoot();
     }
@@ -80,13 +84,13 @@ public class GroupFragment extends AppBaseFragment {
 
     }
 
-    public View.OnClickListener getCcreateGroupFabListener(){
+    public View.OnClickListener getCreateGroupFabListener(){
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
                 i.setClass(mActivity,CreateGroupActivity.class);
-                mActivity.startActivity(i);
+                mActivity.startActivityForResult(i,9527);
             }
         };
     }

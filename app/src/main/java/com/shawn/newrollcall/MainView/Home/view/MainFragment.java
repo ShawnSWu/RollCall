@@ -1,19 +1,28 @@
 package com.shawn.newrollcall.MainView.Home.view;
 
 
+import android.Manifest;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
 import com.shawn.newrollcall.R;
+import com.shawn.newrollcall.ScanBLEModel.RollCallBLEScanner;
 import com.shawn.newrollcall.databinding.FragmentMainBinding;
+import com.shawn.newrollcall.util.PermissionUtil;
+
+import java.util.ArrayList;
 
 /**
  * Created by Shawn Wu on 2017/11/31.
@@ -74,7 +83,18 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
         switch (view.getId()){
 
             case ROLLCALL:
-                Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                PermissionListener bluetoothpermission = new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted() {
+                        Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+
+                    }
+                };
+                PermissionUtil.setBlueToothPermission(getContext(),bluetoothpermission,getResources().getString(R.string.permission_message));
                 break;
 
             case SETDRIVETIME:
@@ -82,7 +102,19 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
                 break;
 
             case TODO:
-                Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                PermissionListener storegePermission = new PermissionListener() {
+                @Override
+                public void onPermissionGranted() {
+                    Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+
+                }
+            };
+
+            PermissionUtil.setExternalStorage(view.getContext(),storegePermission,getResources().getString(R.string.permission_message));
                 break;
         }
 
