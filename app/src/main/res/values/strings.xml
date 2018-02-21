@@ -57,6 +57,8 @@
 
     <string name="log_out">登出</string>
 
+    <string name="device_not_support">此裝置不支援</string>
+
     <string name="permission_message">若您不允許權限,將無法使用此功能</string>
     <string name="roll_call">R o l l C a l l</string>
 </resources>

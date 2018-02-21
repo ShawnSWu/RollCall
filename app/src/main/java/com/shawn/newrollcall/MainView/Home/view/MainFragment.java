@@ -2,6 +2,9 @@ package com.shawn.newrollcall.MainView.Home.view;
 
 
 import android.Manifest;
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -13,12 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.TedPermission;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.ScanBLEModel.RollCallBLEScanner;
+import com.shawn.newrollcall.ScanBLEModel.BluetoothManager;
 import com.shawn.newrollcall.databinding.FragmentMainBinding;
 import com.shawn.newrollcall.util.PermissionUtil;
 
@@ -83,10 +85,14 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
         switch (view.getId()){
 
             case ROLLCALL:
-                PermissionListener bluetoothpermission = new PermissionListener() {
+                PermissionListener accessLocationPermission = new PermissionListener() {
                     @Override
                     public void onPermissionGranted() {
-                        Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                        if(BluetoothManager.checkIfTurnOnBluetooth(mActivity)) {
+                            //do something
+                            Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                        }
+
                     }
 
                     @Override
@@ -94,7 +100,7 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
 
                     }
                 };
-                PermissionUtil.setBlueToothPermission(getContext(),bluetoothpermission,getResources().getString(R.string.permission_message));
+                PermissionUtil.setAccessLocation(getContext(),accessLocationPermission,getResources().getString(R.string.permission_message));
                 break;
 
             case SETDRIVETIME:

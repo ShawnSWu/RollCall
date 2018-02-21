@@ -10,12 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.gun0912.tedpermission.PermissionListener;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.util.PermissionUtil;
-
-import java.util.ArrayList;
 
 /**
  * Created by Shawn Wu on 2017/12/2.

@@ -2,13 +2,9 @@ package com.shawn.newrollcall.util;
 
 import android.Manifest;
 import android.content.Context;
-import android.util.Log;
-
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
-import com.shawn.newrollcall.R;
 
-import java.util.ArrayList;
 
 /**
  * Created by Shawn Wu on 2018/2/21.
@@ -17,7 +13,7 @@ import java.util.ArrayList;
 
 public class PermissionUtil {
 
-    public static void setBlueToothPermission(Context context, PermissionListener permissionListener,String deniedMessage) {
+    public static void setAccessLocation(Context context, PermissionListener permissionListener,String deniedMessage) {
         TedPermission.with(context)
                 .setPermissionListener(permissionListener)
                 .setDeniedMessage(deniedMessage)
