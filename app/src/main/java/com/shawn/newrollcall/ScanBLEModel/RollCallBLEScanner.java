@@ -9,6 +9,8 @@ import android.bluetooth.le.ScanSettings;
 import android.content.Context;
 import android.support.annotation.RequiresPermission;
 
+import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
+
 import java.util.List;
 
 /**
@@ -39,7 +41,7 @@ public class RollCallBLEScanner extends Scanner {
                 if(!deviceAddressList.contains(deviceAddress)) {
                     deviceAddressList.add(deviceAddress);
                     deviceItemList.add(bluetoothDevice);
-
+                    AppFluxCenter.getActionCreator().getBleScannerCreator().updateFindNewDevice(deviceItemList);
                 }
             }
         };

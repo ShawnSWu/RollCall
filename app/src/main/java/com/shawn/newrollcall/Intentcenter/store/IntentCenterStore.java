@@ -1,5 +1,7 @@
 package com.shawn.newrollcall.Intentcenter.store;
 
+import android.os.Bundle;
+
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.Intentcenter.IntentEvent;
@@ -32,6 +34,12 @@ public class IntentCenterStore extends Store {
             case IntentCenterActionsType.INTENT_CREATE_GROUP:
                 event = (IntentEvent) fluxAction.getData()[0];
                 event.doStartActivity();
+                break;
+
+            case IntentCenterActionsType.INTENT_SCAN_DEVICE:
+                event = (IntentEvent) fluxAction.getData()[0];
+                Bundle bundle = (Bundle)fluxAction.getData()[1];
+                event.doStartActivityWithBundle(bundle);
                 break;
         }
     }

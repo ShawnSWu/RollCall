@@ -2,11 +2,13 @@ package com.shawn.newrollcall.Intentcenter.action;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.Intentcenter.IntentEvent;
 import com.shawn.newrollcall.MainView.GroupList.view.CreateGroupActivity;
 import com.shawn.newrollcall.MainView.MainActivity;
+import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 import com.shawn.newrollcall.login.view.LogInActivity;
 
 /**
@@ -44,6 +46,20 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
                         .setFlag(0)
                         .setTargetClass(CreateGroupActivity.class)
                         .build()));
+    }
+
+    public void startScanActivity(Activity activity,String listName,String imageUri) {
+        Bundle bundle = new Bundle();
+        bundle.putString(ScanActivity.listName_Tag, listName);
+        bundle.putString(ScanActivity.imageUri_Tag, imageUri);
+        addAction(newAction(
+                IntentCenterActionsType.INTENT_SCAN_DEVICE,
+                new IntentEvent.Builder()
+                        .setStartAcivity(activity)
+                        .setFlag(0)
+                        .setTargetClass(ScanActivity.class)
+                        .build()
+                ,bundle));
     }
 
 }

@@ -5,16 +5,14 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gun0912.tedpermission.PermissionListener;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
@@ -24,7 +22,6 @@ import com.shawn.newrollcall.MainView.GroupList.event.GetGroupListResponse;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.databinding.FragmentGroupBinding;
 import com.shawn.newrollcall.login.view.LodingFactory;
-import com.shawn.newrollcall.util.PermissionUtil;
 
 import java.util.ArrayList;
 
@@ -108,6 +105,7 @@ public class GroupFragment extends AppBaseFragment {
     }
 
 
+
     @Override
     public void onFluxChanged(FluxAction fluxAction) {
 
@@ -127,6 +125,21 @@ public class GroupFragment extends AppBaseFragment {
                     binding.groupListRecyclerview.setVisibility(View.VISIBLE);
                     binding.emptyview.setVisibility(View.GONE);
                 }
+                break;
+
+            case GroupListInfoType.CREATE_GROUP_SUCCESS:
+                String listName = (String)fluxAction.getData()[0];
+                String imageUri = (String)fluxAction.getData()[1];
+
+                AppFluxCenter
+                        .getActionCreator()
+                        .getRollCallDialogCreator()
+                        .showAddDataFromCreateGroup(mActivity
+                                ,getString(R.string.dialog_content_message1)
+                                ,String.format(getString(R.string.dialog_content_message2),listName)
+                                ,listName
+                                ,imageUri);
+
                 break;
 
             case GroupListInfoType.DELETE_GROUP_SUCCESS:

@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * Created by Shawn Wu on 2017/11/9.
  */
 
-public class Dispatcher {
+public final class Dispatcher {
 
     private final static Dispatcher dispatcher = new Dispatcher();
 

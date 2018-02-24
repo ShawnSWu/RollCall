@@ -25,7 +25,7 @@ public class CreateGroupEvent extends BackEndAPI {
     @Override
     protected void run(AbstractRequest abstractRequest) {
 
-        CreateGroupRequestBody createGroupRequestBody = (CreateGroupRequestBody)abstractRequest;
+        final CreateGroupRequestBody createGroupRequestBody = (CreateGroupRequestBody)abstractRequest;
 
         Call<Boolean> call = getBackEndService().createGroup(createGroupRequestBody);
 
@@ -35,7 +35,10 @@ public class CreateGroupEvent extends BackEndAPI {
                     if (response.isSuccessful()) {
                         if (response.body()) {
                             try {
-                                AppFluxCenter.getActionCreator().getGroupListInfoCreator().createGroupSuccess();
+                                AppFluxCenter
+                                        .getActionCreator()
+                                        .getGroupListInfoCreator()
+                                        .createGroupSuccess(createGroupRequestBody.getListname(),createGroupRequestBody.getGroup_image_uri());
                             }catch (ConcurrentModificationException ignored){
 
                             }

@@ -36,7 +36,7 @@
         <activity android:name=".MainView.MainActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".MainView.ScanActivity"
+        <activity android:name=".ScanBLEModel.view.ScanActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Signup.view.SignUpActivity"

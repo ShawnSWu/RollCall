@@ -2,6 +2,7 @@ package com.shawn.newrollcall.Intentcenter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 
 /**
  * Created by Shawn Wu on 2017/11/30.
@@ -14,12 +15,12 @@ public class IntentEvent {
     private final Class targetClass;
     private final int requestCode,flag;
 
-
     private IntentEvent(Activity startAcivity, Class targetClass, int requestCode, int flag) {
         this.startAcivity = startAcivity;
         this.targetClass = targetClass;
         this.requestCode = requestCode;
         this.flag = flag;
+
     }
 
 
@@ -27,6 +28,14 @@ public class IntentEvent {
         Intent i = new Intent();
         i.setClass(startAcivity,targetClass);
         i.setFlags(flag);
+        startAcivity.startActivity(i);
+    }
+
+    public void doStartActivityWithBundle(Bundle bundle){
+        Intent i = new Intent();
+        i.setClass(startAcivity,targetClass);
+        i.setFlags(flag);
+        i.putExtras(bundle);
         startAcivity.startActivity(i);
     }
 
@@ -59,6 +68,7 @@ public class IntentEvent {
         private Activity startAcivity;
         private Class targetClass;
         private int requestCode,flag;
+        private Bundle bundle;
 
 
         public Builder setStartAcivity(Activity startAcivity) {
@@ -68,6 +78,11 @@ public class IntentEvent {
 
         public Builder setTargetClass(Class targetClass) {
             this.targetClass = targetClass;
+            return this;
+        }
+
+        public Builder setBundle(Bundle bundle){
+            this.bundle = bundle;
             return this;
         }
 

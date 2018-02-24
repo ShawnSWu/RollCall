@@ -4,6 +4,8 @@ package com.shawn.newrollcall.FluxCenter.store;
 import com.shawn.newrollcall.MainView.GroupList.store.GroupListInfoStore;
 import com.shawn.newrollcall.MainView.Profile.store.AccountInfoStore;
 import com.shawn.newrollcall.Intentcenter.store.IntentCenterStore;
+import com.shawn.newrollcall.RollCallDialog.store.RollCallDialogStore;
+import com.shawn.newrollcall.ScanBLEModel.store.BleScannerStore;
 import com.shawn.newrollcall.SharedPreferences.store.SharedPreferencesStore;
 import com.shawn.newrollcall.Signup.store.SignUpAPIStore;
 import com.shawn.newrollcall.login.store.LoginAPIStore;
@@ -45,6 +47,14 @@ public class FluxStoreCenter {
                 store = new GroupListInfoStore();
                 break;
 
+            case FluxStoreType.BLE_SCANNER_MODEL:
+                store = new BleScannerStore();
+                break;
+
+            case FluxStoreType.ROLLCALLDIALOG:
+                store = new RollCallDialogStore();
+                break;
+
         }
 
 
@@ -78,5 +88,13 @@ public class FluxStoreCenter {
 
     public GroupListInfoStore getGroupListInfoStore(){
         return getStore(FluxStoreType.GROUPLIST_INFO);
+    }
+
+    public GroupListInfoStore getBleScannerStore(){
+        return getStore(FluxStoreType.BLE_SCANNER_MODEL);
+    }
+
+    public RollCallDialogStore getRollCallDialogStore(){
+        return getStore(FluxStoreType.ROLLCALLDIALOG);
     }
 }

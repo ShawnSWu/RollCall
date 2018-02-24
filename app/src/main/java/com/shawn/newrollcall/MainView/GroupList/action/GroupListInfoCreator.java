@@ -31,8 +31,8 @@ public class GroupListInfoCreator extends FluxActionCreator {
         addAction(newAction(GroupListInfoType.CREATE_GROUP,new CreateGroupEvent(account,listname,group_image_uri)));
     }
 
-    public void createGroupSuccess() {
-        addAction(newAction(GroupListInfoType.CREATE_GROUP_SUCCESS));
+    public void createGroupSuccess(String listName,String imageUri) {
+        addAction(newAction(GroupListInfoType.CREATE_GROUP_SUCCESS,listName,imageUri));
     }
 
     public void createGroupFail() {

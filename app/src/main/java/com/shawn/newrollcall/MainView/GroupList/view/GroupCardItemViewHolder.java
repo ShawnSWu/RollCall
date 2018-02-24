@@ -24,7 +24,7 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
     private ImageView defalut_image,card_setting,delete_group;
     private CardView groupCardView;
     private  AppCompatCheckBox checkBox;
-    private String groupListName;
+    private String groupListName,defalut_image_Uri;
     private final int CHECKBOX = 0 ,GROUPCARDVIEW = 1,CARDSETTING = 2, DELETEGROUP = 3;
 
     private int selectPosition = -1;
@@ -42,6 +42,7 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
     }
 
     public void setDefalut_image(String  defalut_image_Uri) {
+        this.defalut_image_Uri = defalut_image_Uri;
         Glide.with(itemView).load(defalut_image_Uri).thumbnail(0.1f).into(defalut_image);
     }
 
@@ -90,7 +91,7 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
 
 
             case GROUPCARDVIEW:
-                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon)+defalut_image_Uri+groupListName,Toast.LENGTH_SHORT).show();
                 break;
 
 

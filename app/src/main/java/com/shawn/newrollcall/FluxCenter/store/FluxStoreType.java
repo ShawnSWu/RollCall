@@ -13,4 +13,6 @@ public interface FluxStoreType {
     String INTENT_CENTER = "INTENT_CENTER";
     String ACCOUNT_INFO = "ACCOUNT_INFO";
     String GROUPLIST_INFO = "GROUPLIST_INFO";
+    String BLE_SCANNER_MODEL = "BLE_SCANNER_MODEL";
+    String ROLLCALLDIALOG = "ROLLCALLDIALOG";
 }
