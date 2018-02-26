@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 
 /**
- * Created by Shawn Wu on 2018/1/31.
+ * Created by Shawn Wu on 2017/01/31.
  *
  */
 //處理View層的code

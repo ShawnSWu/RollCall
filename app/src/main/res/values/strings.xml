@@ -23,6 +23,12 @@
     <string name="group">Group</string>
     <string name="group_list_name">Group Name</string>
 
+
+
+
+    <string name="dialog_ok">確定</string>
+    <string name="dialog_cancel">取消</string>
+
     <string name="group_count">團數</string>
     <string name="people_count">人數：</string>
     <string name="drive_count">裝置數量</string>
@@ -36,6 +42,8 @@
     <string name="empty_icon_string">您還沒有任何旅遊團</string>
     <string name="scanning">找尋裝置中</string>
     <string name="scan">搜尋</string>
+    <string name="scan_not_found_device">沒有找到任何裝置</string>
+    <string name="scanner_stop">停止</string>
     <string name="groupname">團隊名稱</string>
     <string name="select_image_uri">選擇團隊圖示</string>
     <string name="create_group_title">創建團隊</string>
@@ -51,14 +59,17 @@
     <string name="todo_message">待辦事項</string>
     <string name="setbledrive">設定集合時間</string>
 
-
+    <string name="add_success">新增成功</string>
     <string name="please_select_image">請選擇團隊圖示</string>
 
     <string name="rollcall_message">現在點名</string>
     <string name="rollcall_message2">(您尚未選擇團隊)</string>
 
     <string name="dialog_content_message1">新增團隊資訊</string>
-    <string name="dialog_content_message2">是否現在將資訊加到 %s 中</string>
+    <string name="dialog_content_message2">是否現在將資訊加到 %s 中？</string>
+
+    <string name="item_device_name">RollCall_Device</string>
+    <string name="item_device_address">RollCall_Address</string>
 
     <string name="test_number">87</string>
 

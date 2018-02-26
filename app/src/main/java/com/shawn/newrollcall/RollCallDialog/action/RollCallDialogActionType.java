@@ -1,7 +1,8 @@
 package com.shawn.newrollcall.RollCallDialog.action;
 
 /**
- * Created by Shawn Wu on 2018/2/24.
+ * Created by Shawn Wu on 2017/12/24.
+ *
  */
 
 public interface RollCallDialogActionType {

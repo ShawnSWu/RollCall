@@ -26,7 +26,11 @@ public abstract class Scanner {
 
     public abstract void stopScan();
 
+    public void clearDeviceList(){
+        deviceItemList.clear();
+    }
+
     public abstract void continueScan();
 
-    public abstract List<BleDeviceItem> getDeviceList();
+    public List<BleDeviceItem> getDeviceList() {return deviceItemList;}
 }

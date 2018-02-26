@@ -5,7 +5,8 @@ import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 
 /**
- * Created by Shawn Wu on 2018/1/31.
+ * Created by Shawn Wu on 2017/11/31.
+ *
  */
 
 public class AccountInfoStore extends Store {

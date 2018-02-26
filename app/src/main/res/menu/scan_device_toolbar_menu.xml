@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:compat="http://schemas.android.com/tools">
 
     <item
         android:enabled="true"
-        android:title="@string/scan"
+        android:title=""
+        app:showAsAction="ifRoom"
+        compat:actionViewClass="android.widget.ImageView"
+        android:id="@+id/action_scanning_loading"/>
+
+    <item
+        android:enabled="true"
+        android:title="@string/scanner_stop"
         app:showAsAction="always"
         android:id="@+id/action_scan"/>
 

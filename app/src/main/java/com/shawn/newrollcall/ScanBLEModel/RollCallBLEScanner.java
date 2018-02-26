@@ -15,10 +15,12 @@ import java.util.List;
 
 /**
  * Created by Shawn.Wu on 2017/10/17.
+ *
  */
 
 public class RollCallBLEScanner extends Scanner {
 
+    private final String ROLLCALL = "RollCall";
     private static ScanSettings scanSettings = null;
 
     private static List<ScanFilter> scanFilter = null;
@@ -39,9 +41,11 @@ public class RollCallBLEScanner extends Scanner {
                 String deviceAddress = bluetoothDevice.getAddress();
 
                 if(!deviceAddressList.contains(deviceAddress)) {
-                    deviceAddressList.add(deviceAddress);
-                    deviceItemList.add(bluetoothDevice);
-                    AppFluxCenter.getActionCreator().getBleScannerCreator().updateFindNewDevice(deviceItemList);
+                    if(bluetoothDevice.getName().contains(ROLLCALL)) {
+                        deviceAddressList.add(deviceAddress);
+                        deviceItemList.add(bluetoothDevice);
+                        AppFluxCenter.getActionCreator().getBleScannerCreator().updateFindNewDevice(deviceItemList);
+                    }
                 }
             }
         };
@@ -69,10 +73,15 @@ public class RollCallBLEScanner extends Scanner {
 
     }
 
+    public boolean isScaning(){
+        return isscaning;
+    }
+
     @Override
     public void stopScan() {
         if(isscaning) {
             bluetoothLeScanner.stopScan(callback());
+            isscaning = false;
         }
     }
 
@@ -82,9 +91,6 @@ public class RollCallBLEScanner extends Scanner {
             scan();
         }
     }
-
-    @Override
-    public List<BleDeviceItem> getDeviceList() {return deviceItemList;}
 
 
     public static class Builder {

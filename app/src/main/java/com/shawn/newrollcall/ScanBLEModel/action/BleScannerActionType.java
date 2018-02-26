@@ -8,4 +8,6 @@ package com.shawn.newrollcall.ScanBLEModel.action;
 public interface BleScannerActionType {
 
     String FIND_NEW_DEVICE = "FIND_NEW_DEVICE";
+    String INSERT_NEW_DATA_TO_GROUP = "INSERT_NEW_DATA_TO_GROUP";
+    String INSERT_NEW_DATA_TO_GROUP_SUCCESS = "INSERT_NEW_DATA_TO_GROUP_SUCCESS";
 }

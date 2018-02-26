@@ -3,7 +3,8 @@ package com.shawn.newrollcall.MainView.Profile.event;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 
 /**
- * Created by Shawn Wu on 2018/2/1.
+ * Created by Shawn Wu on 2017/12/1.
+ *
  */
 
 public class SaveImgurUriRequestBody extends AbstractRequest {

@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 
 
 /**
- * Created by Shawn Wu on 2018/1/30.
+ * Created by Shawn Wu on 2017/11/30.
  *
  */
 //處理架構層的code

@@ -90,7 +90,7 @@ public class FluxStoreCenter {
         return getStore(FluxStoreType.GROUPLIST_INFO);
     }
 
-    public GroupListInfoStore getBleScannerStore(){
+    public BleScannerStore getBleScannerStore(){
         return getStore(FluxStoreType.BLE_SCANNER_MODEL);
     }
 
