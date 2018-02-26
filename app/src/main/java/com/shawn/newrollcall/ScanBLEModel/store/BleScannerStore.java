@@ -1,8 +1,5 @@
 package com.shawn.newrollcall.ScanBLEModel.store;
 
-
-import android.util.Log;
-
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.ScanBLEModel.action.BleScannerActionType;

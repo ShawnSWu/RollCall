@@ -52,6 +52,8 @@ public class ScanActivity extends AppBaseActivity{
     public static final String imageUri_Tag = "imageUri";
     private ImageView scanLoading;
 
+    public static int addDataRequestCode = 6666;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +84,7 @@ public class ScanActivity extends AppBaseActivity{
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rollCallBLEScanner.stopScan();
                 List<BleDeviceItem> deviceItems = rollCallBLEScanner.getDeviceList();
 
                 String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(getBaseContext());
@@ -217,7 +220,6 @@ public class ScanActivity extends AppBaseActivity{
             case BleScannerActionType.INSERT_NEW_DATA_TO_GROUP_SUCCESS:
                 lodingview.dismiss();
                 Toast.makeText(this,getString(R.string.add_success),Toast.LENGTH_SHORT).show();
-                rollCallBLEScanner.stopScan();
                 finish();
 
                 break;

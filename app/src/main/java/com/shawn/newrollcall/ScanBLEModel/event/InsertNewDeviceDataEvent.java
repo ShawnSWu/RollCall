@@ -1,7 +1,7 @@
 package com.shawn.newrollcall.ScanBLEModel.event;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
+
 
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
@@ -28,7 +28,6 @@ public class InsertNewDeviceDataEvent extends BackEndAPI {
 
     @Override
     protected void run(AbstractRequest abstractRequest) {
-        Log.e("~~","執行中");
 
         InsertNewDeviceDataRequestBody insertNewDeviceDataRequestBody = (InsertNewDeviceDataRequestBody)abstractRequest;
 
@@ -39,16 +38,11 @@ public class InsertNewDeviceDataEvent extends BackEndAPI {
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                 if(response.isSuccessful()) {
                     if (response.body().equals("insert Success")) {
-                        Log.e("失敗",itemPosition+" "+listsize);
                         if(itemPosition == listsize-1) {
                             AppFluxCenter.getActionCreator().getBleScannerCreator().insertNewDeviceDatatoGroupSuccess();
                         }
 
-                    } else {
-                        Log.e("失敗",response.body());
                     }
-                }else{
-                    Log.e("~~","失敗");
                 }
             }
 

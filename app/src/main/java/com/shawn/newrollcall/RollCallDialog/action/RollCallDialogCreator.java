@@ -8,10 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
-import com.shawn.newrollcall.MainView.GroupList.view.CreateGroupActivity;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 
@@ -46,7 +43,7 @@ public class RollCallDialogCreator extends FluxActionCreator {
                 Intent i = new Intent();
                 i.setClass(activity,ScanActivity.class);
                 i.putExtras(bundle);
-                activity.startActivity(i);
+                activity.startActivityForResult(i,ScanActivity.addDataRequestCode);
 
 //                AppFluxCenter
 //                        .getActionCreator()

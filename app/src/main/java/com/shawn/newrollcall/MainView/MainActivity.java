@@ -1,5 +1,6 @@
 package com.shawn.newrollcall.MainView;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseActivity;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
@@ -15,6 +17,7 @@ import com.shawn.newrollcall.MainView.GroupList.view.GroupFragment;
 import com.shawn.newrollcall.MainView.Home.view.MainFragment;
 import com.shawn.newrollcall.MainView.Profile.view.ProfileFragment;
 import com.shawn.newrollcall.R;
+import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 import com.shawn.newrollcall.databinding.ActivityMainBinding;
 
 
@@ -46,6 +49,23 @@ public class MainActivity extends AppBaseActivity implements BottomNavigationVie
         binding.bottomNavigation.setOnNavigationItemSelectedListener(this);
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        int a = ScanActivity.addDataRequestCode;
+
+
+        switch (requestCode){
+
+            case  6666:
+                String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(this);
+                AppFluxCenter.getActionCreator().getGroupListInfoCreator().getGroupListInfomation(account);
+                break;
+        }
+    }
 
     private FragmentTransaction changeFragment(AppBaseFragment targetFragment) {
 
