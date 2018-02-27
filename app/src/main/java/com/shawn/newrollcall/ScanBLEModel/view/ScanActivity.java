@@ -7,14 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,8 +46,8 @@ public class ScanActivity extends AppBaseActivity{
 
     private ScanDeviceListAdapter scanDeviceListAdapter;
 
-    public static final String listName_Tag = "listName";
-    public static final String imageUri_Tag = "imageUri";
+    public static final String IMAGE_URI = "listName";
+    public static final String GROUP_LIST_NAME = "imageUri";
     private ImageView scanLoading;
 
     public static int addDataRequestCode = 6666;
@@ -61,8 +59,8 @@ public class ScanActivity extends AppBaseActivity{
         binding = DataBindingUtil.setContentView(this, R.layout.activity_scan);
                 Bundle bundle = this.getIntent().getExtras();
         assert bundle != null;
-        listName =  bundle.getString(listName_Tag);
-        imageUri =  bundle.getString(imageUri_Tag);
+        listName =  bundle.getString(GROUP_LIST_NAME);
+        imageUri =  bundle.getString(IMAGE_URI);
 
         binding.scanActivityToolbar.setTitle(listName);
         binding.btnok.setOnClickListener(getBtnOkLintener());

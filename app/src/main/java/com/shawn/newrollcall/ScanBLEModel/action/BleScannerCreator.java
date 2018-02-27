@@ -3,10 +3,11 @@ package com.shawn.newrollcall.ScanBLEModel.action;
 
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.ScanBLEModel.BleDeviceItem;
+import com.shawn.newrollcall.ScanBLEModel.event.DeviceListInGroupEvent;
+import com.shawn.newrollcall.ScanBLEModel.event.DeviceListInGroupItem;
 import com.shawn.newrollcall.ScanBLEModel.event.InsertNewDeviceDataEvent;
 
-import java.util.Dictionary;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,5 +27,13 @@ public class BleScannerCreator extends FluxActionCreator {
 
     public void insertNewDeviceDatatoGroupSuccess() {
         addAction(newAction(BleScannerActionType.INSERT_NEW_DATA_TO_GROUP_SUCCESS));
+    }
+
+    public void getGroupDeviceData(String account, String list_name) {
+        addAction(newAction(BleScannerActionType.GET_GROUP_DEVICE_DATA,new DeviceListInGroupEvent(account,list_name)));
+    }
+
+    public void getGroupDeviceDataSuccess(ArrayList<DeviceListInGroupItem> deviceListInGroupItems) {
+        addAction(newAction(BleScannerActionType.GET_GROUP_DEVICE_DATA_SUCCESS,deviceListInGroupItems));
     }
 }

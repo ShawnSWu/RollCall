@@ -1,17 +1,24 @@
 package com.shawn.newrollcall.MainView.GroupList.view;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.R;
+import com.shawn.newrollcall.ScanBLEModel.view.DeviceListInGroupActivity;
+import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 
 /**
  * Created by Shawn Wu on 2017/12/2.
@@ -28,7 +35,7 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
     private final int CHECKBOX = 0 ,GROUPCARDVIEW = 1,CARDSETTING = 2, DELETEGROUP = 3;
 
     private int selectPosition = -1;
-
+    private Activity activity;
     private View itemView;
 
 
@@ -56,9 +63,10 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
 
     }
 
-    public GroupCardItemViewHolder(View itemView) {
+    public GroupCardItemViewHolder(View itemView, Activity activity) {
         super(itemView);
         this.itemView = itemView;
+        this.activity = activity;
         groupListNameText = itemView.findViewById(R.id.group_list_name);
         people_count = itemView.findViewById(R.id.people_count);
         defalut_image = itemView.findViewById(R.id.group_list_image);
@@ -79,7 +87,8 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(final View view) {
+
 
         switch (view.getId()) {
 
@@ -91,12 +100,52 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
 
 
             case GROUPCARDVIEW:
-                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon)+defalut_image_Uri+groupListName,Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putString(DeviceListInGroupActivity.GROUP_LIST_NAME, groupListName);
+                bundle.putString(DeviceListInGroupActivity.IMAGE_URI, defalut_image_Uri);
+
+                Intent i = new Intent();
+                i.setClass(activity,DeviceListInGroupActivity.class);
+                i.putExtras(bundle);
+                activity.startActivity(i);
                 break;
 
 
             case CARDSETTING:
-                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+
+                PopupMenu popupMenu = new PopupMenu(view.getContext(),card_setting);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu,popupMenu.getMenu());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+
+                        switch (menuItem.getItemId()) {
+
+                            case R.id.add_quickly:
+                                Bundle bundle = new Bundle();
+                                bundle.putString(ScanActivity.GROUP_LIST_NAME, groupListName);
+                                bundle.putString(ScanActivity.IMAGE_URI, defalut_image_Uri);
+
+                                Intent i = new Intent();
+                                i.setClass(activity,ScanActivity.class);
+                                i.putExtras(bundle);
+                                activity.startActivityForResult(i,ScanActivity.addDataRequestCode);
+                                break;
+
+                            case R.id.edit_manually:
+                                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                                break;
+
+                        }
+
+
+
+                        return true;
+                    }
+                });
+                popupMenu.show();
+
                 break;
 
             case DELETEGROUP:

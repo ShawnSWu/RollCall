@@ -8,11 +8,13 @@ import com.shawn.newrollcall.MainView.GroupList.event.GroupListRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.GetAccountInfoRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.SaveImgurUriRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.UserInfo;
+import com.shawn.newrollcall.ScanBLEModel.event.DeviceListInGroupRequestBody;
 import com.shawn.newrollcall.ScanBLEModel.event.InsertNewDeviceDataRequestBody;
 import com.shawn.newrollcall.Signup.Event.SignupRequestBody;
 import com.shawn.newrollcall.login.Event.LoginRequestBody;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -59,5 +61,9 @@ public interface BackEndService {
     @Headers("Content-Type: application/json")
     @POST("/list/insertnewdatatolist")
     Call<String> insertNewDataToGroup(@Body InsertNewDeviceDataRequestBody insertNewDeviceDataRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST("/list/getlistdata")
+    Call<HashMap<String,String>> getListDataInGroup(@Body DeviceListInGroupRequestBody deviceListInGroupRequestBody);
 
 }

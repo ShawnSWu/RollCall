@@ -37,8 +37,8 @@ public class RollCallDialogCreator extends FluxActionCreator {
             public void onClick(View view) {
 
                 Bundle bundle = new Bundle();
-                bundle.putString(ScanActivity.listName_Tag, listName);
-                bundle.putString(ScanActivity.imageUri_Tag, imageUri);
+                bundle.putString(ScanActivity.GROUP_LIST_NAME, listName);
+                bundle.putString(ScanActivity.IMAGE_URI, imageUri);
 
                 Intent i = new Intent();
                 i.setClass(activity,ScanActivity.class);

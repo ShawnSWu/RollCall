@@ -50,8 +50,8 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
 
     public void startScanActivity(Activity activity,String listName,String imageUri) {
         Bundle bundle = new Bundle();
-        bundle.putString(ScanActivity.listName_Tag, listName);
-        bundle.putString(ScanActivity.imageUri_Tag, imageUri);
+        bundle.putString(ScanActivity.GROUP_LIST_NAME, listName);
+        bundle.putString(ScanActivity.IMAGE_URI, imageUri);
         addAction(newAction(
                 IntentCenterActionsType.INTENT_SCAN_DEVICE,
                 new IntentEvent.Builder()

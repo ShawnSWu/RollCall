@@ -1,5 +1,6 @@
 package com.shawn.newrollcall.MainView.GroupList.view;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,11 @@ public class GroupCardItemRecyclerViewAdapter extends RecyclerView.Adapter<Group
 
     private ArrayList<GetGroupListResponse> groupCardItems;
 
-    public GroupCardItemRecyclerViewAdapter(){
+    private Activity activity;
+
+    public GroupCardItemRecyclerViewAdapter(Activity activity){
         groupCardItems = new ArrayList<>();
+        this.activity = activity;
     }
 
 
@@ -31,7 +35,7 @@ public class GroupCardItemRecyclerViewAdapter extends RecyclerView.Adapter<Group
     @Override
     public GroupCardItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview_group_list, parent, false);
-        return new GroupCardItemViewHolder(view);
+        return new GroupCardItemViewHolder(view,activity);
     }
 
     @Override

@@ -59,7 +59,7 @@ public class GroupFragment extends AppBaseFragment {
 
         AppFluxCenter.getActionCreator().getGroupListInfoCreator().getGroupListInfomation(account);
 
-        groupCardItemRecyclerViewAdapter = new GroupCardItemRecyclerViewAdapter();
+        groupCardItemRecyclerViewAdapter = new GroupCardItemRecyclerViewAdapter(mActivity);
         binding.groupListRecyclerview.setAdapter(groupCardItemRecyclerViewAdapter);
         binding.groupListRecyclerview.setItemAnimator(new DefaultItemAnimator());
         binding.groupListRecyclerview.setLayoutManager(new StaggeredGridLayoutManager(1, OrientationHelper.VERTICAL));

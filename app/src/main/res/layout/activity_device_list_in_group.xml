@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/theme_gray">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/device_list_activity_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_green" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/device_list_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/device_list_activity_toolbar" />
+
+        <LinearLayout
+            android:id="@+id/not_found_device_in_group_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/not_found_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/scanning"
+                android:src="@mipmap/icon_notfounddevice" />
+
+            <TextView
+                android:id="@+id/not_found_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="8dp"
+                android:text="@string/not_found_device_in_group"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+
+    </RelativeLayout>
+</layout>

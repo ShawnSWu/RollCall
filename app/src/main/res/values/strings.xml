@@ -43,6 +43,7 @@
     <string name="scanning">找尋裝置中</string>
     <string name="scan">搜尋</string>
     <string name="scan_not_found_device">沒有找到任何裝置</string>
+    <string name="not_found_device_in_group">這團隊沒有任何資料</string>
     <string name="scanner_stop">停止</string>
     <string name="groupname">團隊名稱</string>
     <string name="select_image_uri">選擇團隊圖示</string>
@@ -74,6 +75,9 @@
     <string name="test_number">87</string>
 
     <string name="log_out">登出</string>
+
+    <string name="add_quickly">快速新增</string>
+    <string name="edit_manually">手動編輯新增</string>
 
     <string name="device_not_support">此裝置不支援</string>
 

@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothDevice;
 
 /**
  * Created by Shawn.Wu on 2017/10/17.
+ *
  */
 
 public class BleDeviceItem {
