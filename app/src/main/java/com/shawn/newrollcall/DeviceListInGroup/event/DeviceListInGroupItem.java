@@ -1,4 +1,4 @@
-package com.shawn.newrollcall.ScanBLEModel.event;
+package com.shawn.newrollcall.DeviceListInGroup.event;
 
 /**
  * Created by Shawn Wu on 2017/12/26.

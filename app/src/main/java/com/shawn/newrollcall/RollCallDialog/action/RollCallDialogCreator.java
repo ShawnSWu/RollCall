@@ -1,17 +1,15 @@
 package com.shawn.newrollcall.RollCallDialog.action;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
-
 
 /**
  * Created by Shawn Wu on 2017/12/24.
@@ -36,19 +34,10 @@ public class RollCallDialogCreator extends FluxActionCreator {
             @Override
             public void onClick(View view) {
 
-                Bundle bundle = new Bundle();
-                bundle.putString(ScanActivity.GROUP_LIST_NAME, listName);
-                bundle.putString(ScanActivity.IMAGE_URI, imageUri);
-
-                Intent i = new Intent();
-                i.setClass(activity,ScanActivity.class);
-                i.putExtras(bundle);
-                activity.startActivityForResult(i,ScanActivity.addDataRequestCode);
-
-//                AppFluxCenter
-//                        .getActionCreator()
-//                        .getIntentCenterActionsCreator()
-//                        .startScanActivity(activity,listName,imageUri);
+                AppFluxCenter
+                        .getActionCreator()
+                        .getIntentCenterActionsCreator()
+                        .startScanActivity(activity,listName,imageUri);
 
                 rollCallDailog.dismiss();
             }

@@ -1,6 +1,7 @@
 package com.shawn.newrollcall.FluxCenter.store;
 
 
+import com.shawn.newrollcall.DeviceListInGroup.store.DeviceListInGroupStore;
 import com.shawn.newrollcall.MainView.GroupList.store.GroupListInfoStore;
 import com.shawn.newrollcall.MainView.Profile.store.AccountInfoStore;
 import com.shawn.newrollcall.Intentcenter.store.IntentCenterStore;
@@ -12,6 +13,7 @@ import com.shawn.newrollcall.login.store.LoginAPIStore;
 
 /**
  * Created by Shawn Wu on 2017/11/11.
+ *
  */
 
 public class FluxStoreCenter {
@@ -55,6 +57,10 @@ public class FluxStoreCenter {
                 store = new RollCallDialogStore();
                 break;
 
+            case FluxStoreType.DEVICELISTINGROUP:
+                store = new DeviceListInGroupStore();
+            break;
+
         }
 
 
@@ -96,5 +102,9 @@ public class FluxStoreCenter {
 
     public RollCallDialogStore getRollCallDialogStore(){
         return getStore(FluxStoreType.ROLLCALLDIALOG);
+    }
+
+    public DeviceListInGroupStore getDeviceListInGroupStore(){
+        return getStore(FluxStoreType.DEVICELISTINGROUP);
     }
 }

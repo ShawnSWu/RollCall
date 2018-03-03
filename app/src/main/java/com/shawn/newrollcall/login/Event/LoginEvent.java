@@ -39,7 +39,7 @@ public class LoginEvent extends BackEndAPI {
                         AppFluxCenter.getActionCreator().getLoginAPICreator().loginFail();
                     }
                 }catch (NullPointerException e){
-                    Log.e("shawn_LoginEvent",e.getMessage());
+
                     e.printStackTrace();
             }
 

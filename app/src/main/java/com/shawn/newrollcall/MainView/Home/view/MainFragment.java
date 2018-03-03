@@ -1,15 +1,8 @@
 package com.shawn.newrollcall.MainView.Home.view;
 
-
-import android.Manifest;
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,6 +84,9 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
                         if(BluetoothManager.checkIfTurnOnBluetooth(mActivity)) {
                             //do something
                             Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+
+                            String groupListName = AppFluxCenter.getStore().getSharedPreferences().getGroupName(getContext());
+
                         }
 
                     }

@@ -1,6 +1,8 @@
 package com.shawn.newrollcall.BackEndAPI;
 
 
+import com.shawn.newrollcall.DeviceListInGroup.event.DeviceListInGroupRequestBody;
+import com.shawn.newrollcall.DeviceListInGroup.event.InsertNewDeviceDataRequestBody;
 import com.shawn.newrollcall.MainView.GroupList.event.CreateGroupRequestBody;
 import com.shawn.newrollcall.MainView.GroupList.event.DeleteGroupRequestBody;
 import com.shawn.newrollcall.MainView.GroupList.event.GetGroupListResponse;
@@ -8,8 +10,8 @@ import com.shawn.newrollcall.MainView.GroupList.event.GroupListRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.GetAccountInfoRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.SaveImgurUriRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.UserInfo;
-import com.shawn.newrollcall.ScanBLEModel.event.DeviceListInGroupRequestBody;
-import com.shawn.newrollcall.ScanBLEModel.event.InsertNewDeviceDataRequestBody;
+
+
 import com.shawn.newrollcall.Signup.Event.SignupRequestBody;
 import com.shawn.newrollcall.login.Event.LoginRequestBody;
 

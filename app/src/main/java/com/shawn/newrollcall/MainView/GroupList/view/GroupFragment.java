@@ -1,7 +1,5 @@
 package com.shawn.newrollcall.MainView.GroupList.view;
 
-
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -84,9 +82,7 @@ public class GroupFragment extends AppBaseFragment {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent();
-                i.setClass(mActivity,CreateGroupActivity.class);
-                mActivity.startActivityForResult(i,9527);
+                AppFluxCenter.getActionCreator().getIntentCenterActionsCreator().startCreateGroupActivity(mActivity);
             }
         };
     }

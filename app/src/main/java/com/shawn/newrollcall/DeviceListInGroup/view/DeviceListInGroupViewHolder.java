@@ -1,11 +1,12 @@
-package com.shawn.newrollcall.ScanBLEModel.view;
+package com.shawn.newrollcall.DeviceListInGroup.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.shawn.newrollcall.DeviceListInGroup.event.DeviceListInGroupItem;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.ScanBLEModel.event.DeviceListInGroupItem;
+
 
 /**
  * Created by Shawn Wu on 2017/12/26.

@@ -14,7 +14,7 @@ import com.shawn.newrollcall.Intentcenter.action.IntentCenterActionsType;
 
 public class IntentCenterStore extends Store {
 
-    private IntentEvent event;
+    private IntentEvent event = null;
 
     @Override
     public void onFluxActionHandling(FluxAction fluxAction) {

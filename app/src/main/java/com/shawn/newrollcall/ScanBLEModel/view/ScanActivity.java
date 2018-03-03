@@ -18,12 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
+import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupActionType;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseActivity;
 import com.shawn.newrollcall.R;
+
 import com.shawn.newrollcall.ScanBLEModel.BleDeviceItem;
 import com.shawn.newrollcall.ScanBLEModel.RollCallBLEScanner;
+
 import com.shawn.newrollcall.ScanBLEModel.action.BleScannerActionType;
 import com.shawn.newrollcall.databinding.ActivityScanBinding;
 import com.shawn.newrollcall.login.view.LodingFactory;
@@ -92,7 +95,7 @@ public class ScanActivity extends AppBaseActivity{
                     String name = deviceItems.get(i).getName();
                     AppFluxCenter
                             .getActionCreator()
-                            .getBleScannerCreator()
+                            .getDeviceListInGroupCreator()
                             .insertNewDeviceDatatoGroup("extra_add",account,listName,address,name,imageUri,i,deviceItems.size());
                 }
 
@@ -211,11 +214,11 @@ public class ScanActivity extends AppBaseActivity{
                 break;
 
 
-            case BleScannerActionType.INSERT_NEW_DATA_TO_GROUP:
+            case DeviceListInGroupActionType.INSERT_NEW_DATA_TO_GROUP:
                 lodingview.show();
                 break;
 
-            case BleScannerActionType.INSERT_NEW_DATA_TO_GROUP_SUCCESS:
+            case DeviceListInGroupActionType.INSERT_NEW_DATA_TO_GROUP_SUCCESS:
                 lodingview.dismiss();
                 Toast.makeText(this,getString(R.string.add_success),Toast.LENGTH_SHORT).show();
                 finish();
@@ -234,11 +237,13 @@ public class ScanActivity extends AppBaseActivity{
     @Override
     public void onFluxStoreRegistered() {
         AppFluxCenter.getStore().getBleScannerStore().register(this);
+        AppFluxCenter.getStore().getDeviceListInGroupStore().register(this);
 
     }
 
     @Override
     public void onFluxStoreUnregistered() {
         AppFluxCenter.getStore().getBleScannerStore().unRegister(this);
+        AppFluxCenter.getStore().getDeviceListInGroupStore().unRegister(this);
     }
 }

@@ -1,4 +1,4 @@
-package com.shawn.newrollcall.ScanBLEModel.event;
+package com.shawn.newrollcall.DeviceListInGroup.event;
 
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 

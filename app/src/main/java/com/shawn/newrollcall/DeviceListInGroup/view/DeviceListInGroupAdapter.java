@@ -1,12 +1,13 @@
-package com.shawn.newrollcall.ScanBLEModel.view;
+package com.shawn.newrollcall.DeviceListInGroup.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.shawn.newrollcall.DeviceListInGroup.event.DeviceListInGroupItem;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.ScanBLEModel.event.DeviceListInGroupItem;
+
 
 import java.util.ArrayList;
 

@@ -1,7 +1,6 @@
-package com.shawn.newrollcall.ScanBLEModel.event;
+package com.shawn.newrollcall.DeviceListInGroup.event;
 
 import android.support.annotation.NonNull;
-
 
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
@@ -39,7 +38,7 @@ public class InsertNewDeviceDataEvent extends BackEndAPI {
                 if(response.isSuccessful()) {
                     if (response.body().equals("insert Success")) {
                         if(itemPosition == listsize-1) {
-                            AppFluxCenter.getActionCreator().getBleScannerCreator().insertNewDeviceDatatoGroupSuccess();
+                            AppFluxCenter.getActionCreator().getDeviceListInGroupCreator().insertNewDeviceDatatoGroupSuccess();
                         }
 
                     }

@@ -45,7 +45,7 @@
         <activity android:name=".MainView.GroupList.view.CreateGroupActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".ScanBLEModel.view.DeviceListInGroupActivity"
+        <activity android:name=".DeviceListInGroup.view.DeviceListInGroupActivity"
             android:screenOrientation="portrait"/>
 
         <provider

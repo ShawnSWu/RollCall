@@ -43,7 +43,7 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
                 IntentCenterActionsType.INTENT_CREATE_GROUP,
                 new IntentEvent.Builder()
                         .setStartAcivity(activity)
-                        .setFlag(0)
+                        .setFlag(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         .setTargetClass(CreateGroupActivity.class)
                         .build()));
     }
@@ -56,7 +56,7 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
                 IntentCenterActionsType.INTENT_SCAN_DEVICE,
                 new IntentEvent.Builder()
                         .setStartAcivity(activity)
-                        .setFlag(0)
+                        .setFlag(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         .setTargetClass(ScanActivity.class)
                         .build()
                 ,bundle));

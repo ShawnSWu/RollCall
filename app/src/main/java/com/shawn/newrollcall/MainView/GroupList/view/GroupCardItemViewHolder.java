@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.ScanBLEModel.view.DeviceListInGroupActivity;
+import com.shawn.newrollcall.DeviceListInGroup.view.DeviceListInGroupActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 
 /**
@@ -52,14 +53,11 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
         this.defalut_image_Uri = defalut_image_Uri;
         Glide.with(itemView).load(defalut_image_Uri).thumbnail(0.1f).into(defalut_image);
     }
-
-    public void setCheckBox(int selectPosition){
+//        AppFluxCenter.getStore().getGroupListInfoStore().getSelectGroupPosition()
+    public void setCheckBox(Activity activity,String groupListName,int selectPosition){
         this.selectPosition = selectPosition;
-        if(AppFluxCenter.getStore().getGroupListInfoStore().getSelectGroupPosition() == selectPosition){
-            checkBox.setChecked(true);
-        }else{
-            checkBox.setChecked(false);
-        }
+        boolean isSelected = AppFluxCenter.getStore().getSharedPreferences().getGroupName(activity).equals(groupListName);
+        checkBox.setChecked(isSelected);
 
     }
 

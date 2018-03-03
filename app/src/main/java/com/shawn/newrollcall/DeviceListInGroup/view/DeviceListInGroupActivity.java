@@ -1,4 +1,4 @@
-package com.shawn.newrollcall.ScanBLEModel.view;
+package com.shawn.newrollcall.DeviceListInGroup.view;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -9,12 +9,12 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupActionType;
+import com.shawn.newrollcall.DeviceListInGroup.event.DeviceListInGroupItem;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseActivity;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.ScanBLEModel.action.BleScannerActionType;
-import com.shawn.newrollcall.ScanBLEModel.event.DeviceListInGroupItem;
 import com.shawn.newrollcall.databinding.ActivityDeviceListInGroupBinding;
 
 import java.util.ArrayList;
@@ -37,9 +37,8 @@ public class DeviceListInGroupActivity extends AppBaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_device_list_in_group);
 
-        binding.deviceListActivityToolbar.setTitle(listName);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_device_list_in_group);
 
         setSupportActionBar(binding.deviceListActivityToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -50,14 +49,13 @@ public class DeviceListInGroupActivity extends AppBaseActivity {
         imageUri =  bundle.getString(IMAGE_URI);
         listName =  bundle.getString(GROUP_LIST_NAME);
 
+        binding.deviceListActivityToolbar.setTitle(listName);
         binding.progressView.setVisibility(View.VISIBLE);
         binding.notFoundDeviceInGroupView.setVisibility(View.GONE);
 
-
-
         AppFluxCenter
                 .getActionCreator()
-                .getBleScannerCreator()
+                .getDeviceListInGroupCreator()
                 .getGroupDeviceData(AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(this),listName);
 
         deviceListInGroupAdapter = new DeviceListInGroupAdapter();
@@ -85,12 +83,12 @@ public class DeviceListInGroupActivity extends AppBaseActivity {
 
         switch (fluxAction.getType()){
 
-            case BleScannerActionType.GET_GROUP_DEVICE_DATA:
+            case DeviceListInGroupActionType.GET_GROUP_DEVICE_DATA:
                 binding.progressView.startAnimation();
 
                 break;
 
-            case BleScannerActionType.GET_GROUP_DEVICE_DATA_SUCCESS:
+            case DeviceListInGroupActionType.GET_GROUP_DEVICE_DATA_SUCCESS:
                 ArrayList<DeviceListInGroupItem> deviceListInGroupItems =(ArrayList<DeviceListInGroupItem>)fluxAction.getData()[0];
                 binding.progressView.setVisibility(View.GONE);
                 if(deviceListInGroupItems.size() == 0){
@@ -104,12 +102,12 @@ public class DeviceListInGroupActivity extends AppBaseActivity {
 
     @Override
     public void onFluxStoreRegistered() {
-        AppFluxCenter.getStore().getBleScannerStore().register(this);
+        AppFluxCenter.getStore().getDeviceListInGroupStore().register(this);
 
     }
 
     @Override
     public void onFluxStoreUnregistered() {
-        AppFluxCenter.getStore().getBleScannerStore().unRegister(this);
+        AppFluxCenter.getStore().getDeviceListInGroupStore().unRegister(this);
     }
 }

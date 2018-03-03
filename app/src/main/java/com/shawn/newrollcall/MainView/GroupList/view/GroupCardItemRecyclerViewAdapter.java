@@ -44,7 +44,7 @@ public class GroupCardItemRecyclerViewAdapter extends RecyclerView.Adapter<Group
         holder.setGroupListName(groupCardItem.getListname());
         holder.setPeople_count(groupCardItem.getPeople_count());
         holder.setDefalut_image(groupCardItem.getGroup_image_uri());
-        holder.setCheckBox(position);
+        holder.setCheckBox(activity,groupCardItem.getListname(),position);
 
 
     }

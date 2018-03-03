@@ -1,6 +1,7 @@
 package com.shawn.newrollcall.FluxCenter.action;
 
 
+import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupCreator;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoCreator;
 import com.shawn.newrollcall.MainView.Profile.action.AccountInfoCreator;
 import com.shawn.newrollcall.Intentcenter.action.IntentCenterActionsCreator;
@@ -47,5 +48,7 @@ public class ActionCreatorCenter {
     public RollCallDialogCreator getRollCallDialogCreator(){
         return new RollCallDialogCreator();
     }
+
+    public DeviceListInGroupCreator getDeviceListInGroupCreator(){return new DeviceListInGroupCreator();}
 
 }

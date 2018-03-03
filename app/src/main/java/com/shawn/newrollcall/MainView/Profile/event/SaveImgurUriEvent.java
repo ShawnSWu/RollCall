@@ -32,7 +32,6 @@ public class SaveImgurUriEvent extends BackEndAPI {
         call.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(@NonNull Call<Boolean> call, @NonNull Response<Boolean> response) {
-                Log.e("update",""+response.body());
                 if (response.isSuccessful())
                     if(response.body()){
                         AppFluxCenter.getActionCreator().getAccountInfoCreator().saveImgurUriSuccess();

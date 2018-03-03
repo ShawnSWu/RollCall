@@ -1,4 +1,4 @@
-package com.shawn.newrollcall.ScanBLEModel.event;
+package com.shawn.newrollcall.DeviceListInGroup.event;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -6,6 +6,7 @@ import android.util.Log;
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -43,12 +44,11 @@ public class DeviceListInGroupEvent extends BackEndAPI {
                     assert responseHashMap != null;
                     for (String key : responseHashMap.keySet()) {
                         String value = responseHashMap.get(key);
-                        Log.e("!!!",""+key+"   "+value);
                         if(!Objects.equals(key, "") && !Objects.equals(value, "")) {
                             deviceListInGroupItems.add(new DeviceListInGroupItem(value, key));
                         }
                     }
-                    AppFluxCenter.getActionCreator().getBleScannerCreator().getGroupDeviceDataSuccess(deviceListInGroupItems);
+                    AppFluxCenter.getActionCreator().getDeviceListInGroupCreator().getGroupDeviceDataSuccess(deviceListInGroupItems);
                 }
             }
 
