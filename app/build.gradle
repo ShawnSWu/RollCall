@@ -41,4 +41,5 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.melnykov:floatingactionbutton:1.3.0'
+    compile 'com.github.shinelw:library:1.0.1'
 }

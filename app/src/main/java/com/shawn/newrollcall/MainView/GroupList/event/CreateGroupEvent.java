@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
-import java.util.ConcurrentModificationException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,15 +33,10 @@ public class CreateGroupEvent extends BackEndAPI {
             public void onResponse(@NonNull Call<Boolean> call, @NonNull Response<Boolean> response) {
                     if (response.isSuccessful()) {
                         if (response.body()) {
-                            try {
                                 AppFluxCenter
                                         .getActionCreator()
                                         .getGroupListInfoCreator()
                                         .createGroupSuccess(createGroupRequestBody.getListname(),createGroupRequestBody.getGroup_image_uri());
-                            }catch (ConcurrentModificationException ignored){
-
-                            }
-
                         } else {
                             AppFluxCenter.getActionCreator().getGroupListInfoCreator().createGroupFail();
                         }

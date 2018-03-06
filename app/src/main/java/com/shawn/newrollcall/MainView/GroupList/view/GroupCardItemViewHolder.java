@@ -7,7 +7,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -53,7 +52,7 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
         this.defalut_image_Uri = defalut_image_Uri;
         Glide.with(itemView).load(defalut_image_Uri).thumbnail(0.1f).into(defalut_image);
     }
-//        AppFluxCenter.getStore().getGroupListInfoStore().getSelectGroupPosition()
+
     public void setCheckBox(Activity activity,String groupListName,int selectPosition){
         this.selectPosition = selectPosition;
         boolean isSelected = AppFluxCenter.getStore().getSharedPreferences().getGroupName(activity).equals(groupListName);
@@ -149,6 +148,7 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
             case DELETEGROUP:
                 String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(view.getContext());
                 AppFluxCenter.getActionCreator().getGroupListInfoCreator().deleteGroup(account,groupListName);
+                AppFluxCenter.getActionCreator().getSharedPreferencesCreator().deleteGroupName(view.getContext());
                 break;
 
 

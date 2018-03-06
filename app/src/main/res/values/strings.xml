@@ -52,6 +52,9 @@
     <string name="create_group">新增</string>
     <string name="create_success">創建成功</string>
     <string name="create_fail">創建失敗</string>
+    <string name="rollcall_over">點名結束</string>
+
+    <string name="device_name_message">裝置名稱</string>
 
     <string name="dialog_message">Dialog Message</string>
     <string name="dialog_title">Dialog Title</string>
@@ -68,6 +71,9 @@
 
     <string name="dialog_content_message1">新增團隊資訊</string>
     <string name="dialog_content_message2">是否現在將資訊加到 %s 中？</string>
+
+    <string name="total_people">總共 %d 人</string>
+    <string name="absence_people">%d 人沒來</string>
 
     <string name="item_device_name">RollCall_Device</string>
     <string name="item_device_address">RollCall_Address</string>

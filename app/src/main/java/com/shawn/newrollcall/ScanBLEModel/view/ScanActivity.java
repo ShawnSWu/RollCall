@@ -40,18 +40,19 @@ import java.util.List;
 
 public class ScanActivity extends AppBaseActivity{
 
-    private RollCallBLEScanner rollCallBLEScanner;
+    protected RollCallBLEScanner rollCallBLEScanner;
 
     private KProgressHUD lodingview;
 
-    private ActivityScanBinding binding;
-    private String listName,imageUri;
+    protected ActivityScanBinding binding;
+    protected String listName,imageUri;
 
     private ScanDeviceListAdapter scanDeviceListAdapter;
+    protected TextView menuText;
 
     public static final String IMAGE_URI = "listName";
     public static final String GROUP_LIST_NAME = "imageUri";
-    private ImageView scanLoading;
+    protected ImageView scanLoading;
 
     public static int addDataRequestCode = 6666;
 
@@ -81,7 +82,7 @@ public class ScanActivity extends AppBaseActivity{
 
     }
 
-    private View.OnClickListener getBtnOkLintener(){
+    protected View.OnClickListener getBtnOkLintener(){
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,14 +112,14 @@ public class ScanActivity extends AppBaseActivity{
 
     }
 
-    private Animation getAnimation(){
+    protected Animation getAnimation(){
         Animation animation = new AlphaAnimation(0.1f, 1.0f);
         animation.setDuration(1000);
         animation.setRepeatCount(-1);
         return animation;
     }
 
-    private Animation getNullAnimation(){
+    protected Animation getNullAnimation(){
         Animation animation = new AlphaAnimation(0, 0);
         animation.setDuration(1000);
         animation.setRepeatCount(-1);
@@ -152,8 +153,6 @@ public class ScanActivity extends AppBaseActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        TextView menuText = findViewById(R.id.action_scan);
-
         switch (item.getItemId()) {
 
             case android.R.id.home:
@@ -162,40 +161,48 @@ public class ScanActivity extends AppBaseActivity{
 
             case R.id.action_scan:
                 if(rollCallBLEScanner.isScaning()) {
-                    rollCallBLEScanner.stopScan();
-                    if (rollCallBLEScanner.getDeviceList().isEmpty()){
-                        setNotFoundView();
-                    }
-                    menuText.setText(getString(R.string.scan));
-                    scanLoading.setAnimation(getNullAnimation());
+                    showStopScanView();
                 }else{
-                    clearView();
-                    setSearchView();
-                    menuText.setText(getString(R.string.scanner_stop));
-                    rollCallBLEScanner.startScan();
-                    scanLoading.setAnimation(getAnimation());
-
+                    showStartScanView();
                 }
-
                 return true;
 
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void clearView(){
+    protected void showStopScanView(){
+        menuText = findViewById(R.id.action_scan);
+        rollCallBLEScanner.stopScan();
+        if (rollCallBLEScanner.getDeviceList().isEmpty()){
+            setNotFoundView();
+        }
+        menuText.setText(getString(R.string.scan));
+        scanLoading.setAnimation(getNullAnimation());
+    }
+
+    protected void showStartScanView(){
+        menuText = findViewById(R.id.action_scan);
+        clearView();
+        setSearchView();
+        menuText.setText(getString(R.string.scanner_stop));
+        rollCallBLEScanner.startScan();
+        scanLoading.setAnimation(getAnimation());
+    }
+
+    protected void clearView(){
         rollCallBLEScanner.clearDeviceList();
         scanDeviceListAdapter.updateView(rollCallBLEScanner.getDeviceList());
         binding.btnok.setEnabled(false);
         binding.btnok.setBackgroundColor(getColor(R.color.theme_gray));
     }
 
-    private void setNotFoundView(){
+    protected void setNotFoundView(){
         binding.searchNotFoundDeviceView.setVisibility(View.VISIBLE);
         binding.searchview.setVisibility(View.GONE);
     }
 
-    private void setSearchView(){
+    protected void setSearchView(){
         binding.searchNotFoundDeviceView.setVisibility(View.GONE);
         binding.searchview.setVisibility(View.VISIBLE);
     }

@@ -2,6 +2,7 @@ package com.shawn.newrollcall.DeviceListInGroup.action;
 
 import com.shawn.newrollcall.DeviceListInGroup.event.DeviceListInGroupEvent;
 import com.shawn.newrollcall.DeviceListInGroup.event.DeviceListInGroupItem;
+import com.shawn.newrollcall.DeviceListInGroup.event.GetCountDeviceListInGroupEvent;
 import com.shawn.newrollcall.DeviceListInGroup.event.InsertNewDeviceDataEvent;
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 
@@ -29,5 +30,13 @@ public class DeviceListInGroupCreator  extends FluxActionCreator {
 
     public void getGroupDeviceDataSuccess(ArrayList<DeviceListInGroupItem> deviceListInGroupItems) {
         addAction(newAction(DeviceListInGroupActionType.GET_GROUP_DEVICE_DATA_SUCCESS,deviceListInGroupItems));
+    }
+
+    public void getGroupDeviceDataCount(String account, String list_name) {
+        addAction(newAction(DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT,new GetCountDeviceListInGroupEvent(account,list_name)));
+    }
+
+    public void getGroupDeviceDataCountSuccess(Integer listcount) {
+        addAction(newAction(DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT_SUCCESS,listcount));
     }
 }

@@ -39,6 +39,9 @@
         <activity android:name=".ScanBLEModel.view.ScanActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ScanBLEModel.view.RollCallActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".Signup.view.SignUpActivity"
             android:screenOrientation="portrait"/>
 
@@ -46,6 +49,9 @@
             android:screenOrientation="portrait" />
 
         <activity android:name=".DeviceListInGroup.view.DeviceListInGroupActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".RollCall.view.RollCallResultActivity"
             android:screenOrientation="portrait"/>
 
         <provider

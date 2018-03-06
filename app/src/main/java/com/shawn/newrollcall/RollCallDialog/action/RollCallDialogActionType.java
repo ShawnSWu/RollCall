@@ -8,4 +8,6 @@ package com.shawn.newrollcall.RollCallDialog.action;
 public interface RollCallDialogActionType {
 
     String ADD_DATA_FROM_CREATE_GROUP = "ADD_DATA_FROM_CREATE_GROUP";
+
+    String ROLLCALLRESULT = "ROLLCALLRESULT";
 }

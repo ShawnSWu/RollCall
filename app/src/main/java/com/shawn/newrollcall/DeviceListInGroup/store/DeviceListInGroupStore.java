@@ -19,6 +19,8 @@ public class DeviceListInGroupStore extends Store {
             case DeviceListInGroupActionType.GET_GROUP_DEVICE_DATA_SUCCESS:
             case DeviceListInGroupActionType.INSERT_NEW_DATA_TO_GROUP:
             case DeviceListInGroupActionType.INSERT_NEW_DATA_TO_GROUP_SUCCESS:
+            case DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT:
+            case DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT_SUCCESS:
                 emitted(fluxAction);
                 break;
         }

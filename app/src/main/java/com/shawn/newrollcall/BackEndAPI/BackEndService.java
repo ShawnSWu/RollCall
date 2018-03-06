@@ -68,4 +68,8 @@ public interface BackEndService {
     @POST("/list/getlistdata")
     Call<HashMap<String,String>> getListDataInGroup(@Body DeviceListInGroupRequestBody deviceListInGroupRequestBody);
 
+    @Headers("Content-Type: application/json")
+    @POST("/list/listcount")
+    Call<Integer> getCountListDataInGroup(@Body DeviceListInGroupRequestBody deviceListInGroupRequestBody);
+
 }

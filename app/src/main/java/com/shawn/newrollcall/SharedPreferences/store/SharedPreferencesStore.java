@@ -18,6 +18,7 @@ public class SharedPreferencesStore extends Store {
     private Activity activity;
     private Context context;
     private SharedPreferences setting;
+    private String groupName;
 
     @Override
     public void onFluxActionHandling(FluxAction fluxAction) {
@@ -39,12 +40,23 @@ public class SharedPreferencesStore extends Store {
 
             case SharedPreferencesActionType.SAVEGROUPNAME:
                 context = (Context) fluxAction.getData()[0];
-                String groupName = (String)fluxAction.getData()[1];
+                groupName = (String)fluxAction.getData()[1];
 
                 setting = context.getSharedPreferences(SharedPreferencesActionType.ACCOUNT,Context.MODE_PRIVATE);
                 setting.edit()
                         .putString(SharedPreferencesActionType.SAVEGROUPNAME,groupName)
                         .apply();
+                break;
+
+            case SharedPreferencesActionType.DELETEGROUPNAME:
+                context = (Context) fluxAction.getData()[0];
+                groupName = "";
+
+                setting = context.getSharedPreferences(SharedPreferencesActionType.ACCOUNT,Context.MODE_PRIVATE);
+                setting.edit()
+                        .putString(SharedPreferencesActionType.SAVEGROUPNAME,groupName)
+                        .apply();
+
                 break;
 
         }

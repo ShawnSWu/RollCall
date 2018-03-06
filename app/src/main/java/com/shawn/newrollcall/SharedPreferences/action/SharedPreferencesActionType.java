@@ -11,5 +11,6 @@ public interface SharedPreferencesActionType {
     String SAVE_ACCOUNT = "SAVE_ACCOUNT";
     String SAVE_PASSWORD = "SAVE_PASSWORD";
     String SAVEGROUPNAME = "SAVEGROUPNAME";
+    String DELETEGROUPNAME = "DELETEGROUPNAME";
 
 }

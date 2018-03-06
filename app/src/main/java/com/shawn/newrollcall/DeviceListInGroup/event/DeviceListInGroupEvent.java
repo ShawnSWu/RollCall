@@ -1,7 +1,6 @@
 package com.shawn.newrollcall.DeviceListInGroup.event;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.shawn.newrollcall.BackEndAPI.BackEndAPI;
 import com.shawn.newrollcall.FluxCenter.AbstractRequest;
@@ -45,7 +44,7 @@ public class DeviceListInGroupEvent extends BackEndAPI {
                     for (String key : responseHashMap.keySet()) {
                         String value = responseHashMap.get(key);
                         if(!Objects.equals(key, "") && !Objects.equals(value, "")) {
-                            deviceListInGroupItems.add(new DeviceListInGroupItem(value, key));
+                            deviceListInGroupItems.add(new DeviceListInGroupItem(value,key));
                         }
                     }
                     AppFluxCenter.getActionCreator().getDeviceListInGroupCreator().getGroupDeviceDataSuccess(deviceListInGroupItems);

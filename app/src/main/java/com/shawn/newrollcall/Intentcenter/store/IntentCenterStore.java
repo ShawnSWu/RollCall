@@ -16,6 +16,8 @@ public class IntentCenterStore extends Store {
 
     private IntentEvent event = null;
 
+    private  Bundle bundle;
+
     @Override
     public void onFluxActionHandling(FluxAction fluxAction) {
 
@@ -36,9 +38,11 @@ public class IntentCenterStore extends Store {
                 event.doStartActivity();
                 break;
 
+            case IntentCenterActionsType.INTENT_ROLLCALL_RESULT:
+            case IntentCenterActionsType.INTENT_ROLLCALL:
             case IntentCenterActionsType.INTENT_SCAN_DEVICE:
                 event = (IntentEvent) fluxAction.getData()[0];
-                Bundle bundle = (Bundle)fluxAction.getData()[1];
+                bundle = (Bundle)fluxAction.getData()[1];
                 event.doStartActivityWithBundle(bundle);
                 break;
         }

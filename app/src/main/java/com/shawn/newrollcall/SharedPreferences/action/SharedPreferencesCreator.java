@@ -21,4 +21,8 @@ public class SharedPreferencesCreator extends FluxActionCreator {
         addAction(newAction(SharedPreferencesActionType.SAVEGROUPNAME,context,groupName));
     }
 
+    public void deleteGroupName(Context context) {
+        addAction(newAction(SharedPreferencesActionType.DELETEGROUPNAME,context));
+    }
+
 }

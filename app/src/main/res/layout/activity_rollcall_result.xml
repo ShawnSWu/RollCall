@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/theme_gray"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/rollcall_result_activity_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_green" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/total_people_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:padding="15dp"
+                android:text="@string/scan_not_found_device"
+                />
+
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="50dp"
+                android:background="#FF909090" />
+
+
+            <TextView
+                android:id="@+id/absence_people_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:padding="15dp"
+                android:text="@string/scan_not_found_device"/>
+        </LinearLayout>
+
+
+        <com.shinelw.library.ColorArcProgressBar
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/present_people"
+            app:is_need_content="true"
+            app:front_color1="@color/theme_gray"
+            app:front_color2="@color/theme_green"
+            app:front_color3="@color/theme_black"
+            app:is_need_title="true"
+            app:string_title="實到"
+            app:max_value="10"
+            app:back_width="3dp"
+            app:front_width="10dp"
+            app:total_engle="270"
+            app:is_need_unit="true"
+            app:string_unit="人"
+            app:back_color="@color/white" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/absence_people_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</layout>

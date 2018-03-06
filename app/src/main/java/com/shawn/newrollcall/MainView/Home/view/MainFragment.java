@@ -9,12 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.gun0912.tedpermission.PermissionListener;
+import com.kaopiz.kprogresshud.KProgressHUD;
+import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupActionType;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.ScanBLEModel.BluetoothManager;
 import com.shawn.newrollcall.databinding.FragmentMainBinding;
+import com.shawn.newrollcall.login.view.LodingFactory;
 import com.shawn.newrollcall.util.PermissionUtil;
 
 import java.util.ArrayList;
@@ -33,6 +36,7 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
     private String groupName;
 
     private final int ROLLCALL = 0 ,SETDRIVETIME = 1,TODO = 2;
+    private static KProgressHUD lodingview;
 
     public static MainFragment getInstance() {
         if (instance == null) {
@@ -61,15 +65,20 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
     @Override
     public void onHiddenChanged(boolean hidden) {
         if (!hidden) {
+            lodingview = LodingFactory.getLodingAnimation(R.string.please_wait,getContext());
             groupName = AppFluxCenter.getStore().getSharedPreferences().getGroupName(getContext());
-            binding.readyGroupName.setText(groupName);
+            if(!groupName.equals("")){
+                binding.readyGroupName.setText(groupName);
+            }else{
+                binding.readyGroupName.setText(mActivity.getResources().getString(R.string.rollcall_message2));
+            }
         }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        AppFluxCenter.getActionCreator().getSharedPreferencesCreator().saveGroupName(getContext(),mActivity.getResources().getString(R.string.rollcall_message2));
+        AppFluxCenter.getActionCreator().getSharedPreferencesCreator().deleteGroupName(getContext());
     }
 
     @Override
@@ -82,10 +91,14 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
                     @Override
                     public void onPermissionGranted() {
                         if(BluetoothManager.checkIfTurnOnBluetooth(mActivity)) {
-                            //do something
-                            Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
-
-                            String groupListName = AppFluxCenter.getStore().getSharedPreferences().getGroupName(getContext());
+                            groupName = AppFluxCenter.getStore().getSharedPreferences().getGroupName(getContext());
+                            if(!groupName.equals("")) {
+                                String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(getContext());
+                                AppFluxCenter.getActionCreator().getDeviceListInGroupCreator().getGroupDeviceDataCount(account,groupName);
+                            }else{
+                                Toast.makeText(getContext(),getResources().getString(R.string.rollcall_message2),Toast.LENGTH_SHORT).show();
+                                return;
+                            }
 
                         }
 
@@ -131,16 +144,36 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
     @Override
     public void onFluxChanged(FluxAction fluxAction) {
 
+        switch (fluxAction.getType()){
+
+            case DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT:
+                lodingview.show();
+                break;
+
+
+            case DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT_SUCCESS:
+                lodingview.dismiss();
+                Integer listCount = (Integer) fluxAction.getData()[0];
+                if(listCount != 0){
+                    AppFluxCenter.getActionCreator().getIntentCenterActionsCreator().startRollCallActivity(mActivity, groupName);
+                }else{
+                    Toast.makeText(getContext(),getResources().getString(R.string.not_found_device_in_group),Toast.LENGTH_SHORT).show();
+                }
+
+
+                break;
+        }
+
     }
 
     @Override
     public void onFluxStoreRegistered() {
-
+        AppFluxCenter.getStore().getDeviceListInGroupStore().register(this);
     }
 
     @Override
     public void onFluxStoreUnregistered() {
-
+        AppFluxCenter.getStore().getDeviceListInGroupStore().unRegister(this);
     }
 
 }

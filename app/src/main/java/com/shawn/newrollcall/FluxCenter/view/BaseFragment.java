@@ -1,7 +1,5 @@
 package com.shawn.newrollcall.FluxCenter.view;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 
@@ -13,15 +11,14 @@ import android.support.v4.app.Fragment;
 public abstract class BaseFragment extends Fragment implements onFluxChangedListener {
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onStart() {
+        super.onStart();
         onFluxStoreRegistered();
     }
 
-
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onPause() {
+        super.onPause();
         onFluxStoreUnregistered();
     }
 

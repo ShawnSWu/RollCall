@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by Shawn.Wu on 2017/11/8.
+ *
  */
 
 //處理架構層的code
