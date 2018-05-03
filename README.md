@@ -1,7 +1,7 @@
 ## RollCall
 
 
-![RollCall](https://i.imgur.com/DEdlzRX.png)
+![RollCall](https://i.imgur.com/dAQEJx1.png)
 
 # Download
 ![Download](https://i.imgur.com/hwQwJ7K.png)
