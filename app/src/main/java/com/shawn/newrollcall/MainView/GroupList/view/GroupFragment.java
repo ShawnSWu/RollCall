@@ -70,7 +70,7 @@ public class GroupFragment extends AppBaseFragment {
         binding.createGroupFab.attachToRecyclerView(binding.groupListRecyclerview);
         binding.createGroupFab.setColorNormal(getResources().getColor(R.color.theme_green));
         binding.createGroupFab.setColorPressed(getResources().getColor(R.color.btn_press_green));
-        binding.createGroupFab.setColorRipple(getResources().getColor(R.color.AppBackgroundColor));
+        binding.createGroupFab.setColorRipple(getResources().getColor(R.color.app_background_color));
         binding.createGroupFab.setOnClickListener(getCreateGroupFabListener());
 
         return binding.getRoot();

@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/people_count"
-                    android:textColor="@color/AppBackgroundColor"
+                    android:textColor="@color/app_background_color"
                     android:textSize="20sp"/>
 
                 <TextView
@@ -80,7 +80,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/test_number"
-                    android:textColor="@color/AppBackgroundColor"
+                    android:textColor="@color/app_background_color"
                     android:layout_weight="1"
                     android:textSize="20sp" />
 

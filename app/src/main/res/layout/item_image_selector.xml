@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:padding="15dp"
-        android:background="@color/AppBackgroundColor">
+        android:background="@color/app_background_color">
 
         <ImageView
             android:id="@+id/seletor_iamge_item"
