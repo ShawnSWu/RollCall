@@ -18,7 +18,7 @@ import com.shawn.newrollcall.R;
 
 public class RollCallDialogCreator extends FluxActionCreator {
 
-    private AlertDialog rollCallDailog;
+    private static AlertDialog rollCallDailog;
 
     public void showAddDataFromCreateGroup(final Activity activity, String title, String message,final String listName, final String imageUri) {
         addAction(newAction(RollCallDialogActionType.ADD_DATA_FROM_CREATE_GROUP));
@@ -50,10 +50,14 @@ public class RollCallDialogCreator extends FluxActionCreator {
             }
         });
 
-        rollCallDailog = new AlertDialog.Builder(activity)
-                .setView(dialogView)
-                .create();
-        rollCallDailog.show();
+        if(rollCallDailog == null) {
+            rollCallDailog = new AlertDialog.Builder(activity)
+                    .setView(dialogView)
+                    .create();
+        }
+        if(!rollCallDailog.isShowing()) {
+            rollCallDailog.show();
+        }
     }
 
     public void showAddDataFromEmptyGroup(final Activity activity, String title, String message,final String listName, final String imageUri) {

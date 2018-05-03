@@ -50,7 +50,7 @@ public class RollCallResultActivity extends AppBaseActivity{
 
         ColorArcProgressBar progressBar_outpeople = findViewById(R.id.present_people);
         progressBar_outpeople.setMaxValues(peopleCount);
-        progressBar_outpeople.setCurrentValues(restOfPeople.size());
+        progressBar_outpeople.setCurrentValues(peopleCount - absencePeople);
 
         binding.rollcallResultActivityToolbar.setTitle(listName);
         binding.absencePeopleText.setText(String.format(getString(R.string.absence_people),absencePeople));

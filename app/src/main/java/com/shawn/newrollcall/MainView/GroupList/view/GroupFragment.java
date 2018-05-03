@@ -2,7 +2,9 @@ package com.shawn.newrollcall.MainView.GroupList.view;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -53,6 +55,9 @@ public class GroupFragment extends AppBaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
 
+        binding.swiperefreshLayout.setOnRefreshListener(getRefresh());
+        binding.swiperefreshLayout.setColorSchemeResources(R.color.theme_green);
+
         account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(getContext());
 
         AppFluxCenter.getActionCreator().getGroupListInfoCreator().getGroupListInfomation(account);
@@ -76,6 +81,22 @@ public class GroupFragment extends AppBaseFragment {
         super.onStart();
         lodingview = LodingFactory.getLodingAnimation(R.string.please_wait,getContext());
 
+    }
+
+    private SwipeRefreshLayout.OnRefreshListener getRefresh(){
+        return new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppFluxCenter.getActionCreator().getGroupListInfoCreator().getGroupListInfomation(account);
+                        binding.swiperefreshLayout.setRefreshing(false);
+                    }
+                },2000);
+
+            }
+        };
     }
 
     public View.OnClickListener getCreateGroupFabListener(){
@@ -108,6 +129,7 @@ public class GroupFragment extends AppBaseFragment {
         switch (fluxAction.getType()){
 
             case GroupListInfoType.GET_GROUP_LIST_INFO_SUCCESS:
+
                 //更新cardview
                 ArrayList<GetGroupListResponse> getGroupList = (ArrayList<GetGroupListResponse>) fluxAction.getData()[0];
 
