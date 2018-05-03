@@ -4,7 +4,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/AppBackgroundColor">
+        android:background="@color/app_background_color">
 
 
         <LinearLayout
@@ -77,10 +77,10 @@
 
             <ImageView
                 android:layout_margin="8dp"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="75dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/icon_rollcall"
+                android:src="@mipmap/rollcall_icon"
                 android:contentDescription="@string/roll_call"/>
 
             <TextView
