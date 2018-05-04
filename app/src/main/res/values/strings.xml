@@ -24,8 +24,6 @@
     <string name="group_list_name">Group Name</string>
 
 
-
-
     <string name="dialog_ok">確定</string>
     <string name="dialog_cancel">取消</string>
 
@@ -60,8 +58,10 @@
     <string name="dialog_title">Dialog Title</string>
     <string name="coming_soon">coming soon</string>
 
-    <string name="todo_message">待辦事項</string>
-    <string name="setbledrive">設定集合時間</string>
+    <string name="start_rollcall">開 始 點 名</string>
+    <string name="todo_message">待 辦 事 項</string>
+    <string name="setbledrive">設 定 集 合 時 間</string>
+    <string name="calender">日 程</string>
 
     <string name="add_success">新增成功</string>
     <string name="please_select_image">請選擇團隊圖示</string>

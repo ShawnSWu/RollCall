@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/app_background_color">
+
+            <RelativeLayout
+                android:id="@+id/main_item"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@mipmap/rollcall_item_bg">
+
+                <TextView
+                    android:id="@+id/main_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="title"/>
+
+                <TextView
+                    android:id="@+id/item_other_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/main_item_image"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_alignParentStart="true"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:scaleType="centerCrop"-->
+                    <!--android:src="@mipmap/background_rollcall" />-->
+            </RelativeLayout>
+
+</LinearLayout>

@@ -3,31 +3,30 @@ package com.shawn.newrollcall.MainView.Home.view;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
-import com.gun0912.tedpermission.PermissionListener;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupActionType;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.ScanBLEModel.BluetoothManager;
 import com.shawn.newrollcall.databinding.FragmentMainBinding;
 import com.shawn.newrollcall.login.view.LodingFactory;
-import com.shawn.newrollcall.util.PermissionUtil;
-
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Shawn Wu on 2017/11/31.
  *
  */
 
-public class MainFragment extends AppBaseFragment implements View.OnClickListener{
+public class MainFragment extends AppBaseFragment {
 
     private FragmentMainBinding binding;
     public final static String TAG = "MainFragment";
@@ -35,7 +34,14 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
     private static MainFragment instance;
     private String groupName;
 
-    private final int ROLLCALL = 0 ,SETDRIVETIME = 1,TODO = 2;
+    private RollCallitemAdapter rollCallitemAdapter;
+
+    private List<String> titleList;
+
+    private List<Integer> imageList;
+
+    private List<String> descriptionList;
+
     private static KProgressHUD lodingview;
 
     public static MainFragment getInstance() {
@@ -48,15 +54,26 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
+        lodingview = LodingFactory.getLodingAnimation(R.string.please_wait,getContext());
+        titleList = Arrays.asList(getString(R.string.start_rollcall),
+                getString(R.string.todo_message),
+                getString(R.string.setbledrive),
+                getString(R.string.calender));
 
-        binding.rollcallButton.setOnClickListener(this);
-        binding.rollcallButton.setId(ROLLCALL);
-        binding.setBleDrive.setOnClickListener(this);
-        binding.setBleDrive.setId(SETDRIVETIME);
-        binding.todoButton.setOnClickListener(this);
-        binding.todoButton.setId(TODO);
+        imageList = Arrays.asList(R.mipmap.rollcall_item_bg
+                ,R.mipmap.main_todo_item
+                ,R.mipmap.main_alarmclock_item
+                ,R.mipmap.main_calendar_item);
 
+        descriptionList = Arrays.asList(getString(R.string.rollcall_message2),"","","");
+
+        rollCallitemAdapter = new RollCallitemAdapter(titleList,imageList,descriptionList,mActivity);
+
+        binding.mainItemRecyclerview.setAdapter(rollCallitemAdapter);
+        binding.mainItemRecyclerview.setItemAnimator(new DefaultItemAnimator());
+        binding.mainItemRecyclerview.setLayoutManager(new StaggeredGridLayoutManager(1, OrientationHelper.VERTICAL));
 
         return binding.getRoot();
     }
@@ -68,10 +85,11 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
             lodingview = LodingFactory.getLodingAnimation(R.string.please_wait,getContext());
             groupName = AppFluxCenter.getStore().getSharedPreferences().getGroupName(getContext());
             if(!groupName.equals("")){
-                binding.readyGroupName.setText(groupName);
+                descriptionList.set(0,groupName);
             }else{
-                binding.readyGroupName.setText(mActivity.getResources().getString(R.string.rollcall_message2));
+                descriptionList.set(0,getString(R.string.rollcall_message2));
             }
+            rollCallitemAdapter.notifyDataSetChanged();
         }
     }
 
@@ -79,60 +97,6 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
     public void onDestroy() {
         super.onDestroy();
         AppFluxCenter.getActionCreator().getSharedPreferencesCreator().deleteGroupName(getContext());
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()){
-
-            case ROLLCALL:
-                PermissionListener accessLocationPermission = new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted() {
-                        if(BluetoothManager.checkIfTurnOnBluetooth(mActivity)) {
-                            groupName = AppFluxCenter.getStore().getSharedPreferences().getGroupName(getContext());
-                            if(!groupName.equals("")) {
-                                String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(getContext());
-                                AppFluxCenter.getActionCreator().getDeviceListInGroupCreator().getGroupDeviceDataCount(account,groupName);
-                            }else{
-                                Toast.makeText(getContext(),getResources().getString(R.string.rollcall_message2),Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-
-                        }
-
-                    }
-
-                    @Override
-                    public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-
-                    }
-                };
-                PermissionUtil.setAccessLocation(getContext(),accessLocationPermission,getResources().getString(R.string.permission_message));
-                break;
-
-            case SETDRIVETIME:
-                Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
-                break;
-
-            case TODO:
-                PermissionListener storegePermission = new PermissionListener() {
-                @Override
-                public void onPermissionGranted() {
-                    Toast.makeText(getContext(),getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-
-                }
-            };
-
-            PermissionUtil.setExternalStorage(view.getContext(),storegePermission,getResources().getString(R.string.permission_message));
-                break;
-        }
-
     }
 
     @Override
@@ -147,19 +111,21 @@ public class MainFragment extends AppBaseFragment implements View.OnClickListene
         switch (fluxAction.getType()){
 
             case DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT:
-                lodingview.show();
+                if(lodingview != null) {
+                    lodingview.show();
+                }
                 break;
 
-
             case DeviceListInGroupActionType.GET_GROUP_DEVICE_COUNT_SUCCESS:
-                lodingview.dismiss();
+                if(lodingview != null) {
+                    lodingview.dismiss();
+                }
                 Integer listCount = (Integer) fluxAction.getData()[0];
                 if(listCount != 0){
                     AppFluxCenter.getActionCreator().getIntentCenterActionsCreator().startRollCallActivity(mActivity, groupName);
                 }else{
                     Toast.makeText(getContext(),getResources().getString(R.string.not_found_device_in_group),Toast.LENGTH_SHORT).show();
                 }
-
 
                 break;
         }
