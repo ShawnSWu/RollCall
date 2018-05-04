@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.gun0912.tedpermission.PermissionListener;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.R;
@@ -68,9 +67,7 @@ public class RollCallitemViewHolder extends RecyclerView.ViewHolder implements V
                                 Toast.makeText(mActivity,mActivity.getResources().getString(R.string.rollcall_message2),Toast.LENGTH_SHORT).show();
                                 return;
                             }
-
                         }
-
                     }
 
                     @Override
