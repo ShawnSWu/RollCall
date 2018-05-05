@@ -1,8 +1,9 @@
 ## RollCall
 
 <figure class="half">
-   <img src="https://i.imgur.com/dAQEJx1.png">
-    <img src="https://i.imgur.com/0LEIZnE.png">
+   ![Download](https://i.imgur.com/0LEIZnE.png)
+   ![Download](https://i.imgur.com/0LEIZnE.png)
+
 </figure>
 
 ## Download
