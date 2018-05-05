@@ -1,10 +1,5 @@
 ## RollCall
-
-<figure class="half">
-   ![Download](https://i.imgur.com/0LEIZnE.png)
-   ![Download](https://i.imgur.com/0LEIZnE.png)
-
-</figure>
+![Download](https://i.imgur.com/0LEIZnE.png)
 
 ## Download
 ![Download](https://i.imgur.com/0LEIZnE.png)
