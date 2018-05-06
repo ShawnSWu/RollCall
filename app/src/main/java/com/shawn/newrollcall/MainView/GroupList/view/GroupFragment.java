@@ -19,6 +19,7 @@ import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoType;
 import com.shawn.newrollcall.MainView.GroupList.event.GetGroupListResponse;
 import com.shawn.newrollcall.R;
+import com.shawn.newrollcall.ScanBLEModel.action.BleScannerActionType;
 import com.shawn.newrollcall.databinding.FragmentGroupBinding;
 import com.shawn.newrollcall.login.view.LodingFactory;
 
@@ -177,6 +178,10 @@ public class GroupFragment extends AppBaseFragment {
             case GroupListInfoType.UPDATE_SELECT_GROUP:
                 groupCardItemRecyclerViewAdapter.notifyDataSetChanged();
                 break;
+
+            case BleScannerActionType.ADD_DATE_SUCCESS:
+                AppFluxCenter.getActionCreator().getGroupListInfoCreator().getGroupListInfomation(account);
+                break;
         }
 
     }
@@ -184,11 +189,13 @@ public class GroupFragment extends AppBaseFragment {
     @Override
     public void onFluxStoreRegistered() {
         AppFluxCenter.getStore().getGroupListInfoStore().register(this);
+        AppFluxCenter.getStore().getBleScannerStore().register(this);
     }
 
     @Override
     public void onFluxStoreUnregistered() {
         AppFluxCenter.getStore().getGroupListInfoStore().unRegister(this);
+        AppFluxCenter.getStore().getBleScannerStore().unRegister(this);
     }
 
 }

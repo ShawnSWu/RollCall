@@ -53,6 +53,9 @@
     <string name="rollcall_over">點名結束</string>
 
     <string name="device_name_message">裝置名稱</string>
+    <string name="device_address_message">裝置ID：%s</string>
+
+    <string name="edit_device">編輯裝置</string>
 
     <string name="dialog_message">Dialog Message</string>
     <string name="dialog_title">Dialog Title</string>

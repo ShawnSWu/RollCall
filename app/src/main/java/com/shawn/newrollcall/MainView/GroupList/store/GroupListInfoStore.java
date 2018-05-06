@@ -3,6 +3,7 @@ package com.shawn.newrollcall.MainView.GroupList.store;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoType;
+import com.shawn.newrollcall.ScanBLEModel.action.BleScannerActionType;
 
 /**
  * Created by Shawn Wu on 2017/12/3.
@@ -26,6 +27,7 @@ public class GroupListInfoStore extends Store {
                 emitted(fluxAction);
                 break;
 
+            case BleScannerActionType.ADD_DATE_SUCCESS:
             case GroupListInfoType.GET_GROUP_LIST_INFO_SUCCESS:
             case GroupListInfoType.CREATE_GROUP_FAIL:
             case GroupListInfoType.DELETE_GROUP_SUCCESS:

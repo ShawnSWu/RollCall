@@ -16,4 +16,10 @@
     <style name="RedButtonStyle" parent="Widget.AppCompat.Button.Borderless">
         <item name="colorButtonNormal">@android:color/holo_red_light</item>
     </style>
+
+    <style name="dialog_editText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/theme_green</item>
+
+    </style>
+
 </resources>

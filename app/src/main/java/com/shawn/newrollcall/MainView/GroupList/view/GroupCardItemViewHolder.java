@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.DeviceListInGroup.view.DeviceListInGroupActivity;
+import com.shawn.newrollcall.ScanBLEModel.view.ManualEditActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 
 /**
@@ -120,18 +121,17 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
                         switch (menuItem.getItemId()) {
 
                             case R.id.add_quickly:
-                                Bundle bundle = new Bundle();
-                                bundle.putString(ScanActivity.GROUP_LIST_NAME, groupListName);
-                                bundle.putString(ScanActivity.IMAGE_URI, defalut_image_Uri);
-
-                                Intent i = new Intent();
-                                i.setClass(activity,ScanActivity.class);
-                                i.putExtras(bundle);
-                                activity.startActivityForResult(i,ScanActivity.addDataRequestCode);
+                                AppFluxCenter
+                                        .getActionCreator()
+                                        .getIntentCenterActionsCreator()
+                                        .startScanActivity(activity,groupListName,defalut_image_Uri);
                                 break;
 
                             case R.id.edit_manually:
-                                Toast.makeText(view.getContext(),view.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+                                AppFluxCenter
+                                        .getActionCreator()
+                                        .getIntentCenterActionsCreator()
+                                        .startManualEditActivity(activity,groupListName,defalut_image_Uri);
                                 break;
 
                         }

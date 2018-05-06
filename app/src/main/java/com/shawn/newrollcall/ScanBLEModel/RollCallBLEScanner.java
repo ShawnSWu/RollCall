@@ -44,7 +44,10 @@ public class RollCallBLEScanner extends Scanner {
                     if(bluetoothDevice.getName().contains(ROLLCALL)) {
                         deviceAddressList.add(deviceAddress);
                         deviceItemList.add(bluetoothDevice);
-                        AppFluxCenter.getActionCreator().getBleScannerCreator().updateFindNewDevice(deviceItemList);
+                        AppFluxCenter
+                                .getActionCreator()
+                                .getBleScannerCreator()
+                                .updateFindNewDevice(deviceItemList,deviceAddress,bluetoothDevice.getName());
                     }
                 }
             }

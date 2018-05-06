@@ -47,7 +47,7 @@ public class ScanActivity extends AppBaseActivity{
     protected ActivityScanBinding binding;
     protected String listName,imageUri;
 
-    private ScanDeviceListAdapter scanDeviceListAdapter;
+    protected ScanDeviceListAdapter scanDeviceListAdapter;
     protected TextView menuText;
 
     public static final String IMAGE_URI = "listName";
@@ -222,11 +222,16 @@ public class ScanActivity extends AppBaseActivity{
 
 
             case DeviceListInGroupActionType.INSERT_NEW_DATA_TO_GROUP:
-                lodingview.show();
+                if(lodingview != null) {
+                    lodingview.show();
+                }
                 break;
 
             case DeviceListInGroupActionType.INSERT_NEW_DATA_TO_GROUP_SUCCESS:
-                lodingview.dismiss();
+                if(lodingview != null) {
+                    lodingview.dismiss();
+                }
+                AppFluxCenter.getActionCreator().getBleScannerCreator().addDateSuccess();
                 Toast.makeText(this,getString(R.string.add_success),Toast.LENGTH_SHORT).show();
                 finish();
 

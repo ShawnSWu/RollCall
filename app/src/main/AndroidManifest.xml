@@ -39,6 +39,9 @@
         <activity android:name=".ScanBLEModel.view.ScanActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ScanBLEModel.view.ManualEditActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ScanBLEModel.view.RollCallActivity"
             android:screenOrientation="portrait"/>
 

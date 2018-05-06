@@ -9,5 +9,7 @@ public interface RollCallDialogActionType {
 
     String ADD_DATA_FROM_CREATE_GROUP = "ADD_DATA_FROM_CREATE_GROUP";
 
+    String MAUNAL_EDIT_ADD = "MAUNAL_EDIT_ADD";
+
     String ROLLCALLRESULT = "ROLLCALLRESULT";
 }

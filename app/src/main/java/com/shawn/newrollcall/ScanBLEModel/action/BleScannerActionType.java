@@ -8,5 +8,7 @@ package com.shawn.newrollcall.ScanBLEModel.action;
 public interface BleScannerActionType {
 
     String FIND_NEW_DEVICE = "FIND_NEW_DEVICE";
+    String RESET_DEVICE_NAME = "RESET_DEVICE_NAME";
+    String ADD_DATE_SUCCESS = "ADD_DATE_SUCCESS";
 
 }

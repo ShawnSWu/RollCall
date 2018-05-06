@@ -10,6 +10,7 @@ import com.shawn.newrollcall.Intentcenter.IntentEvent;
 import com.shawn.newrollcall.MainView.GroupList.view.CreateGroupActivity;
 import com.shawn.newrollcall.MainView.MainActivity;
 import com.shawn.newrollcall.RollCall.view.RollCallResultActivity;
+import com.shawn.newrollcall.ScanBLEModel.view.ManualEditActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.RollCallActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 import com.shawn.newrollcall.login.view.LogInActivity;
@@ -63,6 +64,20 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
                         .setStartAcivity(activity)
                         .setFlag(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         .setTargetClass(ScanActivity.class)
+                        .build()
+                ,bundle));
+    }
+
+    public void startManualEditActivity(Activity activity,String listName,String imageUri) {
+        Bundle bundle = new Bundle();
+        bundle.putString(ScanActivity.GROUP_LIST_NAME, listName);
+        bundle.putString(ScanActivity.IMAGE_URI, imageUri);
+        addAction(newAction(
+                IntentCenterActionsType.INTENT_SCAN_DEVICE,
+                new IntentEvent.Builder()
+                        .setStartAcivity(activity)
+                        .setFlag(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .setTargetClass(ManualEditActivity.class)
                         .build()
                 ,bundle));
     }

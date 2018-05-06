@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_background_color">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout"
+        android:background="@color/theme_green" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dip"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/edit_device"
+            android:id="@+id/edit_device_title"
+            android:layout_marginStart="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_view"
+        android:padding="20dp"
+        android:layout_below="@+id/relativeLayout"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/device_name_edit"
+            android:padding="20dp"
+            android:hint="@string/device_name_message"
+            android:theme="@style/dialog_editText"
+            android:maxLength="15"
+            android:textColorHint="@color/theme_gray"
+            android:layout_marginTop="29dp"/>
+
+            <TextView
+                android:layout_margin="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/device_address_message"
+                android:id="@+id/device_address"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_view"
+        android:layout_centerHorizontal="true"
+        android:weightSum="2" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@color/app_background_color"
+            android:layout_weight="1"
+            android:text="@string/dialog_cancel"
+            android:id="@+id/btn_close"
+            android:layout_gravity="right"
+            android:textColor="#8ed6ee"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/app_background_color"
+            android:text="@string/dialog_ok"
+            android:id="@+id/btn_ok"
+            android:textColor="#8ed6ee"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
