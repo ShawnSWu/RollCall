@@ -39,6 +39,14 @@ public class IntentEvent {
         startAcivity.startActivity(i);
     }
 
+    public void doStartSerViceWithBundle(Bundle bundle){
+        Intent i = new Intent();
+        i.setClass(startAcivity,targetClass);
+        i.setFlags(flag);
+        i.putExtras(bundle);
+        startAcivity.startService(i);
+    }
+
     public void doStartActivityForResult(){
         Intent i = new Intent();
         i.setClass(startAcivity,targetClass);

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class RollCallActivity extends ScanActivity {
 
-    private ArrayList<DeviceListInGroupItem> deviceListInGroupItems;
+    protected ArrayList<DeviceListInGroupItem> deviceListInGroupItems = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

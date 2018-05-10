@@ -50,8 +50,8 @@ public class ScanActivity extends AppBaseActivity{
     protected ScanDeviceListAdapter scanDeviceListAdapter;
     protected TextView menuText;
 
-    public static final String IMAGE_URI = "listName";
-    public static final String GROUP_LIST_NAME = "imageUri";
+    public static final String IMAGE_URI = "imageUri";
+    public static final String GROUP_LIST_NAME = "listName";
     protected ImageView scanLoading;
 
     public static int addDataRequestCode = 6666;

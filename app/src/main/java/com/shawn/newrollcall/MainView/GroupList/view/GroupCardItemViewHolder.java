@@ -1,8 +1,6 @@
 package com.shawn.newrollcall.MainView.GroupList.view;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.CardView;
@@ -12,14 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.R;
-import com.shawn.newrollcall.DeviceListInGroup.view.DeviceListInGroupActivity;
-import com.shawn.newrollcall.ScanBLEModel.view.ManualEditActivity;
-import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 
 /**
  * Created by Shawn Wu on 2017/12/2.
@@ -93,19 +87,15 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
             case CHECKBOX:
                 AppFluxCenter.getActionCreator().getGroupListInfoCreator().updateSelectGroup(selectPosition);
                 AppFluxCenter.getActionCreator().getSharedPreferencesCreator().saveGroupName(view.getContext(),groupListName);
-                Snackbar.make(view,"點名團隊:"+groupListName,Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view,view.getContext().getString(R.string.ready_rollcall_team)+groupListName,Snackbar.LENGTH_LONG).show();
                 break;
 
 
             case GROUPCARDVIEW:
-                Bundle bundle = new Bundle();
-                bundle.putString(DeviceListInGroupActivity.GROUP_LIST_NAME, groupListName);
-                bundle.putString(DeviceListInGroupActivity.IMAGE_URI, defalut_image_Uri);
-
-                Intent i = new Intent();
-                i.setClass(activity,DeviceListInGroupActivity.class);
-                i.putExtras(bundle);
-                activity.startActivity(i);
+                AppFluxCenter
+                        .getActionCreator()
+                        .getIntentCenterActionsCreator()
+                        .startGroupListInGroupActivity(activity,groupListName,defalut_image_Uri);
                 break;
 
 
@@ -135,9 +125,6 @@ public class GroupCardItemViewHolder extends RecyclerView.ViewHolder implements 
                                 break;
 
                         }
-
-
-
                         return true;
                     }
                 });

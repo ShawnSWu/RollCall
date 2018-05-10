@@ -36,6 +36,9 @@
         <activity android:name=".MainView.MainActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ScanBLEModel.view.WriteDataToDeviceActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ScanBLEModel.view.SetDeviceRemindActivity"
             android:screenOrientation="portrait"/>
 
@@ -59,6 +62,11 @@
 
         <activity android:name=".RollCall.view.RollCallResultActivity"
             android:screenOrientation="portrait"/>
+
+        <service
+            android:name=".ScanBLEModel.view.WriteDataToDeviceService"
+            android:enabled="true"
+            android:exported="true" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

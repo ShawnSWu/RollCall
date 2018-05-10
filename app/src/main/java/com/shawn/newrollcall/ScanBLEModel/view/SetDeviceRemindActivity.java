@@ -90,8 +90,13 @@ public class SetDeviceRemindActivity extends AppBaseActivity{
                         break;
                 }
 
+                String groupName = binding.groupSpinner.getSelectedItem().toString();
+                AppFluxCenter.getActionCreator().getDeviceListInGroupCreator().getGroupDeviceData(account,groupName);
 
-
+                AppFluxCenter
+                        .getActionCreator()
+                        .getIntentCenterActionsCreator()
+                        .startWriteDataToDeviceActivity(SetDeviceRemindActivity.this,groupName,choose_sencond);
             }
         };
     }

@@ -86,6 +86,10 @@
 
     <string name="test_number">87</string>
 
+    <string name="ready_rollcall_team">點名團隊：</string>
+
+    <string name="NotSupportBLE">"此裝置不支援BLE</string>
+
     <string name="ten_seconds">10秒鐘</string>
     <string name="nobody">0</string>
 
