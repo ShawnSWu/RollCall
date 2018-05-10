@@ -13,6 +13,7 @@ import com.shawn.newrollcall.RollCall.view.RollCallResultActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.ManualEditActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.RollCallActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
+import com.shawn.newrollcall.ScanBLEModel.view.SetDeviceRemindActivity;
 import com.shawn.newrollcall.login.view.LogInActivity;
 
 import java.util.ArrayList;
@@ -110,6 +111,17 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
                         .setTargetClass(RollCallResultActivity.class)
                         .build()
                 ,bundle));
+    }
+
+    public void startSetDeviceRemindActivity(Activity activity) {
+        addAction(newAction(
+                IntentCenterActionsType.INTENT_SET_DEVICE_REMIND,
+                new IntentEvent.Builder()
+                        .setStartAcivity(activity)
+                        .setFlag(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .setTargetClass(SetDeviceRemindActivity.class)
+                        .build()));
+
     }
 
 }

@@ -25,7 +25,7 @@ public class RollCallitemViewHolder extends RecyclerView.ViewHolder implements V
     private RelativeLayout relativeLayout;
     private TextView titleName, otherDescription;
     private String groupName;
-    private final int ROLLCALL = 0 ,SETDRIVETIME = 1,TODO = 2;
+    private final int ROLLCALL = 0 , TODO = 1, SETDRIVETIME = 2;
     private Activity mActivity;
 
 
@@ -78,10 +78,6 @@ public class RollCallitemViewHolder extends RecyclerView.ViewHolder implements V
                 PermissionUtil.setAccessLocation(mActivity,accessLocationPermission,mActivity.getResources().getString(R.string.permission_message));
                 break;
 
-            case SETDRIVETIME:
-                Toast.makeText(mActivity,mActivity.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
-                break;
-
             case TODO:
                 PermissionListener storegePermission = new PermissionListener() {
                     @Override
@@ -96,6 +92,10 @@ public class RollCallitemViewHolder extends RecyclerView.ViewHolder implements V
                 };
 
                 PermissionUtil.setExternalStorage(view.getContext(),storegePermission,mActivity.getResources().getString(R.string.permission_message));
+                break;
+
+            case SETDRIVETIME:
+                AppFluxCenter.getActionCreator().getIntentCenterActionsCreator().startSetDeviceRemindActivity(mActivity);
                 break;
 
                 default:

@@ -3,6 +3,11 @@ package com.shawn.newrollcall.ScanBLEModel.action;
 
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.ScanBLEModel.BleDeviceItem;
+import com.shawn.newrollcall.ScanBLEModel.event.GetAllGroupListNameEvent;
+import com.shawn.newrollcall.ScanBLEModel.event.GetSomeOneGroupListDataEvent;
+import com.shawn.newrollcall.ScanBLEModel.event.GroupItemDataResponse;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,5 +28,22 @@ public class BleScannerCreator extends FluxActionCreator {
     public void addDateSuccess() {
         addAction(newAction(BleScannerActionType.ADD_DATE_SUCCESS));
     }
+
+    public void getAllGroupName(String account) {
+        addAction(newAction(BleScannerActionType.GET_ALL_GROUP_NAME,new GetAllGroupListNameEvent(account)));
+    }
+
+    public void getAllGroupNameSuccess(ArrayList<String> allGroupList) {
+        addAction(newAction(BleScannerActionType.GET_ALL_GROUP_NAME_SUCCESS,allGroupList));
+    }
+
+    public void getSomeOneGroupData(String account,String listName) {
+        addAction(newAction(BleScannerActionType.GET_SOMEONE_GROUP_DATA,new GetSomeOneGroupListDataEvent(account,listName)));
+    }
+
+    public void getSomeOneGroupDataSuccess(GroupItemDataResponse groupItemDataResponse) {
+        addAction(newAction(BleScannerActionType.GET_SOMEONE_GROUP_DATA_SUCCESS,groupItemDataResponse));
+    }
+
 
 }

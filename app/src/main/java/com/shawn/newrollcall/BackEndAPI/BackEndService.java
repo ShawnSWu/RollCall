@@ -12,6 +12,8 @@ import com.shawn.newrollcall.MainView.Profile.event.SaveImgurUriRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.UserInfo;
 
 
+import com.shawn.newrollcall.ScanBLEModel.event.GroupItemDataResponse;
+import com.shawn.newrollcall.ScanBLEModel.event.GroupItemRequestBody;
 import com.shawn.newrollcall.Signup.Event.SignupRequestBody;
 import com.shawn.newrollcall.login.Event.LoginRequestBody;
 
@@ -71,5 +73,13 @@ public interface BackEndService {
     @Headers("Content-Type: application/json")
     @POST("/list/listcount")
     Call<Integer> getCountListDataInGroup(@Body DeviceListInGroupRequestBody deviceListInGroupRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST("/list/alllistname")
+    Call<ArrayList<String>> getAllGroupName(@Body GroupListRequestBody groupListRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST("/list/getsomegrouplistdata")
+    Call<GroupItemDataResponse> getSomeOneGroupData(@Body GroupItemRequestBody groupListRequestBody);
 
 }

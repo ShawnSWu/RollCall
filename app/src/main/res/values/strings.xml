@@ -64,10 +64,13 @@
     <string name="start_rollcall">開 始 點 名</string>
     <string name="todo_message">待 辦 事 項</string>
     <string name="setbledrive">設 定 集 合 時 間</string>
+    <string name="setbledrive_title">設定集合時間</string>
     <string name="calender">日 程</string>
 
     <string name="add_success">新增成功</string>
     <string name="please_select_image">請選擇團隊圖示</string>
+
+    <string name="plz_choice_group">請選擇團隊</string>
 
     <string name="rollcall_message">現在點名</string>
     <string name="rollcall_message2">(您尚未選擇團隊)</string>
@@ -83,6 +86,12 @@
 
     <string name="test_number">87</string>
 
+    <string name="ten_seconds">10秒鐘</string>
+    <string name="nobody">0</string>
+
+    <string name="set_time">設定時間</string>
+    <string name="group_people_count">人數</string>
+
     <string name="log_out">登出</string>
 
     <string name="add_quickly">快速新增</string>
@@ -92,4 +101,15 @@
 
     <string name="permission_message">若您不允許權限,將無法使用此功能</string>
     <string name="roll_call">R o l l C a l l</string>
+
+
+    <array name="spinner_time">
+        <item>10秒鐘</item>
+        <item>20秒鐘</item>
+        <item>30分鐘</item>
+        <item>45分鐘</item>
+        <item>1小時</item>
+        <item>1個半小時</item>
+        <item>2小時</item>
+    </array>
 </resources>

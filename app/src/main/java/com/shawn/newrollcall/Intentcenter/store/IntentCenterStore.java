@@ -7,6 +7,8 @@ import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.Intentcenter.IntentEvent;
 import com.shawn.newrollcall.Intentcenter.action.IntentCenterActionsType;
 
+import static com.shawn.newrollcall.Intentcenter.action.IntentCenterActionsType.INTENT_SET_DEVICE_REMIND;
+
 /**
  * Created by Shawn Wu on 2017/11/30.
  *
@@ -33,6 +35,8 @@ public class IntentCenterStore extends Store {
                 event.doStartActivity();
                 break;
 
+
+            case IntentCenterActionsType.INTENT_SET_DEVICE_REMIND:
             case IntentCenterActionsType.INTENT_CREATE_GROUP:
                 event = (IntentEvent) fluxAction.getData()[0];
                 event.doStartActivity();

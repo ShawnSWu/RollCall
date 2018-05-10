@@ -6,6 +6,13 @@
         android:padding="8dp"
         android:background="@color/app_background_color">
 
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/group_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="8dp">
+
             <RelativeLayout
                 android:id="@+id/main_item"
                 android:layout_width="match_parent"
@@ -32,14 +39,7 @@
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 
-                <!--<ImageView-->
-                    <!--android:id="@+id/main_item_image"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_alignParentStart="true"-->
-                    <!--android:layout_alignParentTop="true"-->
-                    <!--android:scaleType="centerCrop"-->
-                    <!--android:src="@mipmap/background_rollcall" />-->
             </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

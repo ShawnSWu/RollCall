@@ -36,6 +36,9 @@
         <activity android:name=".MainView.MainActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ScanBLEModel.view.SetDeviceRemindActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ScanBLEModel.view.ScanActivity"
             android:screenOrientation="portrait"/>
 

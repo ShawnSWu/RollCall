@@ -16,6 +16,8 @@ public class BleScannerStore extends Store {
 
         switch (fluxAction.getType()){
 
+            case BleScannerActionType.GET_SOMEONE_GROUP_DATA_SUCCESS:
+            case BleScannerActionType.GET_ALL_GROUP_NAME_SUCCESS:
             case BleScannerActionType.RESET_DEVICE_NAME:
             case BleScannerActionType.FIND_NEW_DEVICE:
                 emitted(fluxAction);
