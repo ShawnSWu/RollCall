@@ -12,6 +12,7 @@ import com.shawn.newrollcall.DeviceListInGroup.event.DeviceListInGroupItem;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.R;
+import com.shawn.newrollcall.ScanBLEModel.action.BleScannerActionType;
 
 import java.util.ArrayList;
 
@@ -116,9 +117,26 @@ public class RollCallActivity extends ScanActivity {
 
     @Override
     public void onFluxChanged(FluxAction fluxAction) {
-        super.onFluxChanged(fluxAction);
 
         switch (fluxAction.getType()) {
+
+
+            case BleScannerActionType.FIND_NEW_DEVICE:
+                binding.searchview.setVisibility(View.GONE);
+                binding.btnok.setEnabled(true);
+                binding.btnok.setBackgroundColor(getColor(R.color.theme_green));
+
+                for(int i =0;i<rollCallBLEScanner.getDeviceList().size();i++) {
+                    String findAddress = rollCallBLEScanner.getDeviceList().get(i).getAddress();
+                    String addressInGroup = deviceListInGroupItems.get(i).getDeviceAddress();
+                    String insteadOfName = deviceListInGroupItems.get(i).getDeviceName();
+
+                    if(findAddress.equals(addressInGroup)) {
+                        rollCallBLEScanner.getDeviceList().get(i).setDeviceName(insteadOfName);
+                    }
+                }
+                scanDeviceListAdapter.updateView(rollCallBLEScanner.getDeviceList());
+                break;
 
             case DeviceListInGroupActionType.GET_GROUP_DEVICE_DATA_SUCCESS:
                 ArrayList<DeviceListInGroupItem> deviceListInGroupItems
