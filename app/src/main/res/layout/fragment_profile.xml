@@ -78,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/group_count"
                             android:layout_gravity="center"
-                            android:textSize="20sp"/>
+                            android:textSize="15sp"/>
 
                         <TextView
                             android:id="@+id/group_count"
@@ -104,7 +104,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="@string/drive_count"
-                            android:textSize="20sp"/>
+                            android:textSize="15sp"/>
 
                         <TextView
                             android:id="@+id/device_count"

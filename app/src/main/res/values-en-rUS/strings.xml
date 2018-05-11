@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RollCall</string>
+    <string name="account">Account</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="forgot_password">Forget Password</string>
+    <string name="log_in">Log in</string>
+    <string name="log_in_error_message">Your account or password is incorrect</string>
+    <string name="sign_up_error_message_already_exists">The Email already exists!!</string>
+
+    <string name="sign_up">Sign up</string>
+    <string name="sign_up_success">Sign up Success</string>
+    <string name="email">Email</string>
+    <string name="email_format_error">The email is not in the correct format</string>
+    <string name="password_format_error">Password must be at least 8 characters long or cannot have blank</string>
+    <string name="confirm_password_error">Inconsistent password</string>
+    <string name="username_format_error">User name must be at least 3 characters long or cannot have blank</string>
+    <string name="username">User Name</string>
+    <string name="please_wait">Please wait..</string>
+
+    <string name="home">Home</string>
+    <string name="group">Team</string>
+    <string name="group_list_name">Team Name</string>
+
+
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <string name="group_count">Count of team</string>
+    <string name="people_count">Count of people：</string>
+    <string name="drive_count">Device of device</string>
+    <string name="profile_image">Profile Picture</string>
+    <string name="profile_setting">Profile Setting</string>
+    <string name="drive_setting">Device Setting</string>
+    <string name="group_setting">Team Setting</string>
+
+    <string name="group_delete">Delete</string>
+
+    <string name="empty_icon_string">No team here</string>
+    <string name="scanning">Searching Device</string>
+    <string name="scan">Searcg</string>
+    <string name="scan_not_found_device">No device found</string>
+    <string name="not_found_device_in_group">No data in this team</string>
+    <string name="scanner_stop">Stop</string>
+    <string name="groupname">Team Name</string>
+    <string name="select_image_uri">Select team icon</string>
+    <string name="create_group_title">Create team</string>
+    <string name="group_name_not_allow_blank">Team name is not allowed to have blank</string>
+    <string name="create_group">Create</string>
+    <string name="create_success">Create Success</string>
+    <string name="create_fail">Create Fail</string>
+    <string name="rollcall_over">RollCall end</string>
+
+    <string name="device_name_message">Device Name</string>
+    <string name="device_address_message">Device ID：%s</string>
+
+    <string name="edit_device">Edit Device</string>
+
+    <string name="dialog_message">Dialog Message</string>
+    <string name="dialog_title">Dialog Title</string>
+    <string name="coming_soon">coming soon</string>
+
+    <string name="start_rollcall">Start RollCall</string>
+    <string name="todo_message">To-Do</string>
+    <string name="setbledrive">Set Remind Time</string>
+    <string name="setbledrive_title">Set Remind Time</string>
+    <string name="calender">Calender</string>
+
+    <string name="add_success">add Success</string>
+    <string name="please_select_image">Please select team icon</string>
+
+    <string name="plz_choice_group">Please select team</string>
+
+    <string name="rollcall_message2">(You did not selected a team yet)</string>
+
+    <string name="dialog_content_message1">Team Information</string>
+    <string name="dialog_content_message2">Do you add information to %s now?</string>
+
+    <string name="total_people">%d people in total</string>
+    <string name="absence_people">%d people absent</string>
+
+    <string name="item_device_name">RollCall_Device</string>
+    <string name="item_device_address">RollCall_Address</string>
+
+    <string name="test_number">..</string>
+
+    <string name="ready_rollcall_team">choice team：</string>
+
+    <string name="NotSupportBLE">"This Device is not support BLE</string>
+
+    <string name="ten_seconds">10 Seconds</string>
+    <string name="nobody">0</string>
+
+    <string name="setting">Setting</string>
+    <string name="setting_finsh">Setting finsh</string>
+
+    <string name="make_sure_set_device">Are you sure you want to set up these %d devices?</string>
+
+    <string name="set_time">Set time</string>
+    <string name="group_people_count">Count of people</string>
+
+    <string name="connect_and_send">Connect and sending…</string>
+
+    <string name="log_out">Log out</string>
+
+    <string name="add_quickly">Quickly add</string>
+    <string name="edit_manually">Manually edit add</string>
+
+    <string name="device_not_support">This Device is not support</string>
+
+    <string name="permission_message">If you do not allow permission, you would not be able to use this feature</string>
+    <string name="roll_call">R o l l C a l l</string>
+
+
+    <array name="spinner_time">
+        <item>10 Seconds</item>
+        <item>20 Seconds</item>
+        <item>30 Minute</item>
+        <item>45 Minute</item>
+        <item>1 Hour</item>
+        <item>1 and a half hours</item>
+        <item>2 Hour</item>
+    </array>
+</resources>

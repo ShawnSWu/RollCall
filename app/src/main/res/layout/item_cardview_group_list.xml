@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/people_count"
                     android:textColor="@color/app_background_color"
-                    android:textSize="20sp"/>
+                    android:textSize="17sp"/>
 
                 <TextView
                     android:id="@+id/people_count"
@@ -82,7 +82,7 @@
                     android:text="@string/test_number"
                     android:textColor="@color/app_background_color"
                     android:layout_weight="1"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
 
                 <android.support.v7.widget.AppCompatCheckBox
                     android:id="@+id/checkbox_select_group"
