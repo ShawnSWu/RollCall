@@ -80,9 +80,7 @@ public class ProfileFragment extends AppBaseFragment implements View.OnClickList
 
     @Override
     public void onHiddenChanged(boolean hidden) {
-        if (!hidden) {
-            AppFluxCenter.getActionCreator().getAccountInfoCreator().getProcfileGroupAndDeivceDataInfomation(account,password);
-        }
+        AppFluxCenter.getActionCreator().getAccountInfoCreator().getProcfileGroupAndDeivceDataInfomation(account,password);
     }
 
     @Override
