@@ -5,6 +5,7 @@ import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupCreator;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoCreator;
 import com.shawn.newrollcall.MainView.Profile.action.AccountInfoCreator;
 import com.shawn.newrollcall.Intentcenter.action.IntentCenterActionsCreator;
+import com.shawn.newrollcall.Notification.action.NotificationCreator;
 import com.shawn.newrollcall.RollCallDialog.action.RollCallDialogCreator;
 import com.shawn.newrollcall.ScanBLEModel.action.BleScannerCreator;
 import com.shawn.newrollcall.SharedPreferences.action.SharedPreferencesCreator;
@@ -13,6 +14,7 @@ import com.shawn.newrollcall.login.action.LoginAPICreator;
 
 /**
  * Created by Shawn.Wu on 2017/11/8.
+ *
  */
 
 public class ActionCreatorCenter {
@@ -50,5 +52,9 @@ public class ActionCreatorCenter {
     }
 
     public DeviceListInGroupCreator getDeviceListInGroupCreator(){return new DeviceListInGroupCreator();}
+
+    public NotificationCreator getNotificationCreator(){
+        return new NotificationCreator();
+    }
 
 }

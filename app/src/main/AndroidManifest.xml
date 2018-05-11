@@ -63,6 +63,9 @@
         <activity android:name=".RollCall.view.RollCallResultActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ToDo.view.ToDoActivity"
+            android:screenOrientation="portrait"/>
+
         <service
             android:name=".ScanBLEModel.view.WriteDataToDeviceService"
             android:enabled="true"

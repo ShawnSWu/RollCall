@@ -18,6 +18,7 @@ import com.shawn.newrollcall.ScanBLEModel.view.ScanActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.SetDeviceRemindActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.WriteDataToDeviceActivity;
 import com.shawn.newrollcall.ScanBLEModel.view.WriteDataToDeviceService;
+import com.shawn.newrollcall.ToDo.view.ToDoActivity;
 import com.shawn.newrollcall.login.view.LogInActivity;
 
 import java.io.Serializable;
@@ -60,6 +61,16 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
                         .setStartAcivity(activity)
                         .setFlag(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         .setTargetClass(CreateGroupActivity.class)
+                        .build()));
+    }
+
+    public void startToDoActivity(Activity activity) {
+        addAction(newAction(
+                IntentCenterActionsType.INTENT_CREATE_GROUP,
+                new IntentEvent.Builder()
+                        .setStartAcivity(activity)
+                        .setFlag(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        .setTargetClass(ToDoActivity.class)
                         .build()));
     }
 

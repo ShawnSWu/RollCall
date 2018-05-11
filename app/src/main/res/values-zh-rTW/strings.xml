@@ -66,6 +66,8 @@
     <string name="todo_message">待 辦 事 項</string>
     <string name="setbledrive">設 定 集 合 時 間</string>
     <string name="setbledrive_title">設定集合時間</string>
+    <string name="todo_message_title">待辦事項</string>
+    <string name="todo_message_empty_massage">還沒有任何待辦事項</string>
     <string name="calender">日 程</string>
 
     <string name="add_success">新增成功</string>

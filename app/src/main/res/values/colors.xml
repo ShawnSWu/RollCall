@@ -16,4 +16,7 @@
 
     <color name="bottom_white">#ededed</color>
     <color name="bottom_gray">#848080</color>
+
+    <color name="todo_note_line">#FFFF77</color>
+    <color name="todo_note_backgroundcolor">#FFFACD</color>
 </resources>

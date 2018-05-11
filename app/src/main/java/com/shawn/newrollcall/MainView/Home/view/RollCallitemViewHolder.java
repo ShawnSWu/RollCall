@@ -82,7 +82,11 @@ public class RollCallitemViewHolder extends RecyclerView.ViewHolder implements V
                 PermissionListener storegePermission = new PermissionListener() {
                     @Override
                     public void onPermissionGranted() {
-                        Toast.makeText(mActivity,mActivity.getResources().getString(R.string.coming_soon),Toast.LENGTH_SHORT).show();
+//                        AppFluxCenter
+//                                .getActionCreator()
+//                                .getNotificationCreator()
+//                                .toDoNotification(mActivity, 9527,"123","456789");
+                        AppFluxCenter.getActionCreator().getIntentCenterActionsCreator().startToDoActivity(mActivity);
                     }
 
                     @Override

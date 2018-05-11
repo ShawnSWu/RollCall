@@ -5,6 +5,7 @@ import com.shawn.newrollcall.DeviceListInGroup.store.DeviceListInGroupStore;
 import com.shawn.newrollcall.MainView.GroupList.store.GroupListInfoStore;
 import com.shawn.newrollcall.MainView.Profile.store.AccountInfoStore;
 import com.shawn.newrollcall.Intentcenter.store.IntentCenterStore;
+import com.shawn.newrollcall.Notification.store.NotificationStore;
 import com.shawn.newrollcall.RollCallDialog.store.RollCallDialogStore;
 import com.shawn.newrollcall.ScanBLEModel.store.BleScannerStore;
 import com.shawn.newrollcall.SharedPreferences.store.SharedPreferencesStore;
@@ -61,6 +62,10 @@ public class FluxStoreCenter {
                 store = new DeviceListInGroupStore();
             break;
 
+            case FluxStoreType.NOTIFICATION:
+                store = new NotificationStore();
+                break;
+
         }
 
 
@@ -106,5 +111,9 @@ public class FluxStoreCenter {
 
     public DeviceListInGroupStore getDeviceListInGroupStore(){
         return getStore(FluxStoreType.DEVICELISTINGROUP);
+    }
+
+    public NotificationStore getNotificationStore(){
+        return getStore(FluxStoreType.NOTIFICATION);
     }
 }

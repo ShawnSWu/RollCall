@@ -135,11 +135,13 @@ public class MainFragment extends AppBaseFragment {
     @Override
     public void onFluxStoreRegistered() {
         AppFluxCenter.getStore().getDeviceListInGroupStore().register(this);
+        AppFluxCenter.getStore().getNotificationStore().register(this);
     }
 
     @Override
     public void onFluxStoreUnregistered() {
         AppFluxCenter.getStore().getDeviceListInGroupStore().unRegister(this);
+        AppFluxCenter.getStore().getNotificationStore().unRegister(this);
     }
 
 }
