@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.shawn.newrollcall.BackEndAPI.ImgurAPI.UploadAsyncTask;
 import com.shawn.newrollcall.MainView.Profile.event.GetAccountInfoEvent;
+import com.shawn.newrollcall.MainView.Profile.event.GetProcfileGroupAndDeivceDataInfoEvent;
 import com.shawn.newrollcall.MainView.Profile.event.SaveImgurUriEvent;
 import com.shawn.newrollcall.MainView.Profile.event.UserInfo;
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
@@ -20,6 +21,14 @@ public class AccountInfoCreator extends FluxActionCreator {
 
     public void getAccountInfomation(String account,String password) {
         addAction(newAction(AccountInfoType.GET_ACCOUNT_INFO,new GetAccountInfoEvent(account,password)));
+    }
+
+    public void getProcfileGroupAndDeivceDataInfomation(String account,String password) {
+        addAction(newAction(AccountInfoType.GET_ACCOUNT_GROUP_AND_DEVICE_DATA,new GetProcfileGroupAndDeivceDataInfoEvent(account,password)));
+    }
+
+    public void getProcfileGroupAndDeivceDataInfomationSuccess(int groupCount,int deviceCount) {
+        addAction(newAction(AccountInfoType.GET_ACCOUNT_GROUP_AND_DEVICE_DATA_SUCCESS,groupCount,deviceCount));
     }
 
     public void getAccountInfomationSuccess(UserInfo userInfo) {

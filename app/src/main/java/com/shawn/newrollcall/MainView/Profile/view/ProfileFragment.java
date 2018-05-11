@@ -79,6 +79,13 @@ public class ProfileFragment extends AppBaseFragment implements View.OnClickList
     }
 
     @Override
+    public void onHiddenChanged(boolean hidden) {
+        if (!hidden) {
+            AppFluxCenter.getActionCreator().getAccountInfoCreator().getProcfileGroupAndDeivceDataInfomation(account,password);
+        }
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.fragment_profile;
     }
@@ -211,6 +218,13 @@ public class ProfileFragment extends AppBaseFragment implements View.OnClickList
 
             case AccountInfoType.SAVE_IMGUR_URI_SUCCESS:
                 AppFluxCenter.getActionCreator().getAccountInfoCreator().getAccountInfomation(account,password);
+                break;
+
+            case AccountInfoType.GET_ACCOUNT_GROUP_AND_DEVICE_DATA_SUCCESS:
+                Integer groupCount =(Integer) fluxAction.getData()[0];
+                Integer deviceCount =(Integer) fluxAction.getData()[1];
+                binding.groupCount.setText(String.valueOf(groupCount));
+                binding.deviceCount.setText(String.valueOf(deviceCount));
                 break;
 
         }

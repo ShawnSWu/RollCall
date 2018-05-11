@@ -2,6 +2,7 @@ package com.shawn.newrollcall.MainView.Profile.action;
 
 /**
  * Created by Shawn Wu on 2017/1/31.
+ *
  */
 
 public interface AccountInfoType {
@@ -9,6 +10,9 @@ public interface AccountInfoType {
     String GET_ACCOUNT_INFO = "GET_ACCOUNT_INFO";
     String GET_ACCOUNT_INFO_SUCCESS = "GET_ACCOUNT_INFO_SUCCESS";
     String GET_ACCOUNT_INFO_FAIL = "GET_ACCOUNT_INFO_FAIL";
+
+    String GET_ACCOUNT_GROUP_AND_DEVICE_DATA = "GET_ACCOUNT_GROUP_AND_DEVICE_DATA";
+    String GET_ACCOUNT_GROUP_AND_DEVICE_DATA_SUCCESS = "GET_ACCOUNT_GROUP_AND_DEVICE_DATA_SUCCESS";
 
     String UPLOAD_PROFILE_IMAGE_IMGUR = "UPLOAD_PROFILE_IMAGE_IMGUR";
 

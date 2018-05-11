@@ -11,7 +11,6 @@ import com.shawn.newrollcall.MainView.Profile.event.GetAccountInfoRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.SaveImgurUriRequestBody;
 import com.shawn.newrollcall.MainView.Profile.event.UserInfo;
 
-
 import com.shawn.newrollcall.ScanBLEModel.event.GroupItemDataResponse;
 import com.shawn.newrollcall.ScanBLEModel.event.GroupItemRequestBody;
 import com.shawn.newrollcall.Signup.Event.SignupRequestBody;
@@ -19,7 +18,7 @@ import com.shawn.newrollcall.login.Event.LoginRequestBody;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -45,6 +44,10 @@ public interface BackEndService {
     @Headers("Content-Type: application/json")
     @POST("/account/getprocfiledata")
     Call<UserInfo> getAccountInfo(@Body GetAccountInfoRequestBody getAccountInfoRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST("/account/getprocfilegroupdevicedate")
+    Call<List<Integer>> getProcfileGroupAndDeivceDataInfo(@Body GetAccountInfoRequestBody getAccountInfoRequestBody);
 
     @Headers("Content-Type: application/json")
     @POST("/account/saveprofileimage")
