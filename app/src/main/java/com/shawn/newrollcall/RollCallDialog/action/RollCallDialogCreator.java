@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.R;
+import com.shawn.newrollcall.ScanBLEModel.BleDeviceItem;
+
+import java.util.List;
 
 /**
  * Created by Shawn Wu on 2017/12/24.
@@ -25,7 +28,7 @@ public class RollCallDialogCreator extends FluxActionCreator {
     public void showAddDataFromCreateGroup(final Activity activity, String title, String message,final String listName, final String imageUri) {
         addAction(newAction(RollCallDialogActionType.ADD_DATA_FROM_CREATE_GROUP));
 
-        View dialogView = LayoutInflater.from(activity).inflate(R.layout.rollcall_dialog_view,null);
+        View dialogView = LayoutInflater.from(activity).inflate(R.layout.dialog_general_view,null);
         TextView dialogtitle = dialogView.findViewById(R.id.dialog_title);
         dialogtitle.setText(title);
         TextView dialogmessage = dialogView.findViewById(R.id.dialog_message);
@@ -97,5 +100,45 @@ public class RollCallDialogCreator extends FluxActionCreator {
                 .setView(dialogView)
                 .create();
         rollCallDailog.show();
+    }
+
+    public void showMakeSureSetDeviceDailog(String title, String message,final Activity activity, final String chooseSeconds, final List<BleDeviceItem> deviceItems) {
+        addAction(newAction(RollCallDialogActionType.ADD_DATA_FROM_CREATE_GROUP));
+
+        View dialogView = LayoutInflater.from(activity).inflate(R.layout.dialog_general_view,null);
+        TextView dialogtitle = dialogView.findViewById(R.id.dialog_title);
+        dialogtitle.setText(title);
+        TextView dialogmessage = dialogView.findViewById(R.id.dialog_message);
+        dialogmessage.setText(message);
+
+        Button btnOk = dialogView.findViewById(R.id.ok);
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppFluxCenter.getActionCreator().getBleScannerCreator().writeDataToDevice();
+                AppFluxCenter
+                        .getActionCreator()
+                        .getIntentCenterActionsCreator()
+                        .startWriteDataToDeviceSerVice(activity,chooseSeconds,deviceItems);
+
+                rollCallDailog.dismiss();
+            }
+        });
+        Button btnCancel = dialogView.findViewById(R.id.cancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rollCallDailog.dismiss();
+            }
+        });
+
+        if(rollCallDailog == null) {
+            rollCallDailog = new AlertDialog.Builder(activity)
+                    .setView(dialogView)
+                    .create();
+        }
+        if(!rollCallDailog.isShowing()) {
+            rollCallDailog.show();
+        }
     }
 }

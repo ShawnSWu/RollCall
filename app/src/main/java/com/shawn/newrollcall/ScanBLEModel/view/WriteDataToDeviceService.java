@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.ScanBLEModel.BLECallBack;
 import com.shawn.newrollcall.ScanBLEModel.BleDeviceItem;
 
@@ -23,8 +24,7 @@ public class WriteDataToDeviceService extends Service {
 
     private List<BleDeviceItem> arrayList;
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
+    public int onStartCommand(Intent intent, int flags, int startId) {
 
         Bundle bundle = intent.getExtras();
 
@@ -32,13 +32,13 @@ public class WriteDataToDeviceService extends Service {
 
         arrayList= (ArrayList<BleDeviceItem>) bundle.getSerializable(WriteDataToDeviceActivity.DEVICE_ARRAYLIST);
 
-
         ble_callBack = new BLECallBack[arrayList.size()];
         for (int i = 0; i < arrayList.size(); i++) {
             ble_callBack[i] = new BLECallBack(chooseSecond);
             device = arrayList.get(i);
             ble_callBack[i].bluetoothGatt = device.getBluetoothDevice().connectGatt(this, false, ble_callBack[i].mGattCallback);
         }
+        AppFluxCenter.getActionCreator().getBleScannerCreator().writeDataToDeviceSuccess();
 
         return START_NOT_STICKY;
     }

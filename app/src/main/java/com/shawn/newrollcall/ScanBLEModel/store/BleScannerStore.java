@@ -16,6 +16,8 @@ public class BleScannerStore extends Store {
 
         switch (fluxAction.getType()){
 
+            case BleScannerActionType.WRITETING_DATA_TO_DEVICE:
+            case BleScannerActionType.WRITE_DATA_TO_DEVICE_SUCCESS:
             case BleScannerActionType.GET_SOMEONE_GROUP_DATA_SUCCESS:
             case BleScannerActionType.GET_ALL_GROUP_NAME_SUCCESS:
             case BleScannerActionType.RESET_DEVICE_NAME:

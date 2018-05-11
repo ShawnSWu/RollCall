@@ -45,5 +45,12 @@ public class BleScannerCreator extends FluxActionCreator {
         addAction(newAction(BleScannerActionType.GET_SOMEONE_GROUP_DATA_SUCCESS,groupItemDataResponse));
     }
 
+    public void writeDataToDevice() {
+        addAction(newAction(BleScannerActionType.WRITETING_DATA_TO_DEVICE));
+    }
+
+    public void writeDataToDeviceSuccess() {
+        addAction(newAction(BleScannerActionType.WRITE_DATA_TO_DEVICE_SUCCESS));
+    }
 
 }

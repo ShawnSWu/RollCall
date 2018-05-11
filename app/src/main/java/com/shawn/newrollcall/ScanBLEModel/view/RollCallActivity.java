@@ -1,9 +1,7 @@
 package com.shawn.newrollcall.ScanBLEModel.view;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -119,13 +117,14 @@ public class RollCallActivity extends ScanActivity {
     public void onFluxChanged(FluxAction fluxAction) {
 
         switch (fluxAction.getType()) {
-
-
             case BleScannerActionType.FIND_NEW_DEVICE:
                 binding.searchview.setVisibility(View.GONE);
                 binding.btnok.setEnabled(true);
                 binding.btnok.setBackgroundColor(getColor(R.color.theme_green));
 
+                if(deviceListInGroupItems.isEmpty()){
+                    break;
+                }
                 for(int i =0;i<rollCallBLEScanner.getDeviceList().size();i++) {
                     String findAddress = rollCallBLEScanner.getDeviceList().get(i).getAddress();
                     String addressInGroup = deviceListInGroupItems.get(i).getDeviceAddress();

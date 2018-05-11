@@ -93,8 +93,15 @@
     <string name="ten_seconds">10秒鐘</string>
     <string name="nobody">0</string>
 
+    <string name="setting">設定</string>
+    <string name="setting_finsh">設定完成</string>
+
+    <string name="make_sure_set_device">確定要設定這%d個裝置嗎?</string>
+
     <string name="set_time">設定時間</string>
     <string name="group_people_count">人數</string>
+
+    <string name="connect_and_send">連線並傳送中…</string>
 
     <string name="log_out">登出</string>
 
