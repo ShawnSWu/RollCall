@@ -29,4 +29,11 @@
         <item name="DialogSpotCount">6</item>
     </style>
 
+    <style name="timePickerStyle"
+        parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/theme_green</item>
+        <item name="android:colorPrimary">@color/theme_green</item>
+        <item name="android:colorPrimaryDark">@color/theme_green</item>
+    </style>
+
 </resources>

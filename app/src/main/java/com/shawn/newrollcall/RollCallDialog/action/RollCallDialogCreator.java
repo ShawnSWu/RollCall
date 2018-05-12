@@ -1,21 +1,28 @@
 package com.shawn.newrollcall.RollCallDialog.action;
 
 import android.app.Activity;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.ScanBLEModel.BleDeviceItem;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -151,15 +158,40 @@ public class RollCallDialogCreator extends FluxActionCreator {
         TextView dialogtitle = dialogView.findViewById(R.id.createtime);
         dialogtitle.setText(createTime);
         final EditText todo_edit = dialogView.findViewById(R.id.todo_edit);
+
+        final ImageView remindClock = dialogView.findViewById(R.id.remind_clock);
+        final TranslateAnimation clockAnimation = new TranslateAnimation(0, 0, 5f, -20f);
+        clockAnimation.setDuration(650);
+        remindClock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+                int hour = c.get(Calendar.HOUR_OF_DAY);
+                int minute = c.get(Calendar.MINUTE);
+
+                new TimePickerDialog(context,R.style.timePickerStyle, new TimePickerDialog.OnTimeSetListener(){
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int chooseHour, int chooseMinute) {
+                        Log.e("~~~","現在時間是" + chooseHour + ":" + chooseMinute);
+                    }
+                }, hour, minute, false).show();
+
+            }
+        });
+
         Button btnOk = dialogView.findViewById(R.id.btn_ok);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppFluxCenter
-                        .getActionCreator()
-                        .getToDoCreator()
-                        .createToDo(account,password,todo_edit.getText().toString(),createTime);
 
+                if(todo_edit.getText().toString().equals("") || todo_edit.getText().toString().length() == 0) {
+                    remindClock.startAnimation(clockAnimation);
+                }else{
+                    AppFluxCenter
+                            .getActionCreator()
+                            .getToDoCreator()
+                            .createToDo(account, password, todo_edit.getText().toString(), createTime);
+                }
                 rollCallDailog.dismiss();
             }
         });
