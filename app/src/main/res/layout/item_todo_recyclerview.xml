@@ -9,7 +9,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/todo_note_line"
+            android:background="@color/theme_green"
             android:id="@+id/view" />
 
         <LinearLayout
@@ -28,6 +28,7 @@
                 android:layout_weight="1"
                 android:textColor="@color/theme_gray"
                 android:id="@+id/todo_title"
+                android:ellipsize="end"
                 android:textStyle="bold"
                 android:padding="6dp"/>
 

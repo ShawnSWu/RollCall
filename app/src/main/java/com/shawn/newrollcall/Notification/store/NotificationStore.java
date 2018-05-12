@@ -3,8 +3,6 @@ package com.shawn.newrollcall.Notification.store;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
-
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.store.Store;
 import com.shawn.newrollcall.Notification.action.NotificationType;
@@ -22,7 +20,6 @@ public class NotificationStore extends Store {
     @Override
     public void onFluxActionHandling(FluxAction fluxAction) {
 
-        Log.e("++789",""+fluxAction.getType());
         switch (fluxAction.getType()){
 
             case NotificationType.TODO_NOTIFICATION:

@@ -68,7 +68,16 @@
     <string name="setbledrive_title">Set Remind Time</string>
     <string name="todo_message_title">To-Do</string>
     <string name="todo_message_empty_massage">Nothing to do</string>
+    <string name="new_todo">New To-Do</string>
     <string name="calender">Calender</string>
+
+
+    <string name="reset_remind">Reset Remind</string>
+    <string name="edit_content">Edit Content</string>
+    <string name="delete_todo">Delete</string>
+    <string name="delete_success">Delete Success</string>
+    <string name="modify_success">Modify Success</string>
+    <string name="server_error">Server error,please try again later</string>
 
     <string name="add_success">add Success</string>
     <string name="please_select_image">Please select team icon</string>

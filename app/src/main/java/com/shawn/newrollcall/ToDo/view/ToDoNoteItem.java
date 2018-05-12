@@ -7,26 +7,26 @@ package com.shawn.newrollcall.ToDo.view;
 
 public class ToDoNoteItem {
 
-    private String toDoTitle,createTime;
+    private String todo_title,todo_createtime;
 
-    private boolean isComplete;
+    private int todo_isFinsh;
 
-    public ToDoNoteItem(String toDoTitle, String createTime, boolean isComplete) {
-        this.toDoTitle = toDoTitle;
-        this.createTime = createTime;
-        this.isComplete = isComplete;
+    public ToDoNoteItem(String toDoTitle, String createTime, int isComplete) {
+        this.todo_title = toDoTitle;
+        this.todo_createtime = createTime;
+        this.todo_isFinsh = isComplete;
     }
 
 
     public String getToDoTitle() {
-        return toDoTitle;
+        return todo_title;
     }
 
     public String getCreateTime() {
-        return createTime;
+        return todo_createtime;
     }
 
     public boolean isComplete() {
-        return isComplete;
+        return todo_isFinsh == 1;
     }
 }

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import com.shawn.newrollcall.BackEndAPI.action.APIType;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseFragment;
@@ -225,6 +226,9 @@ public class ProfileFragment extends AppBaseFragment implements View.OnClickList
                 binding.deviceCount.setText(String.valueOf(deviceCount));
                 break;
 
+            case APIType.SERVER_ERROR:
+                Toast.makeText(mActivity,getString(R.string.server_error),Toast.LENGTH_SHORT).show();
+                break;
         }
 
     }
@@ -233,12 +237,14 @@ public class ProfileFragment extends AppBaseFragment implements View.OnClickList
     public void onFluxStoreRegistered() {
         AppFluxCenter.getStore().getAccountInfoStore().register(this);
         AppFluxCenter.getStore().getIntentCenterStore().register(this);
+        AppFluxCenter.getStore().getAPIStore().register(this);
     }
 
     @Override
     public void onFluxStoreUnregistered() {
         AppFluxCenter.getStore().getAccountInfoStore().unRegister(this);
         AppFluxCenter.getStore().getIntentCenterStore().unRegister(this);
+        AppFluxCenter.getStore().getAPIStore().unRegister(this);
     }
 
 }

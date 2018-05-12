@@ -17,4 +17,6 @@ public interface FluxStoreType {
     String ROLLCALLDIALOG = "ROLLCALLDIALOG";
     String DEVICELISTINGROUP = "DEVICELISTINGROUP";
     String NOTIFICATION = "NOTIFICATION";
+    String TODO = "TODO";
+    String BACKEND_API = "BACKEND_API";
 }

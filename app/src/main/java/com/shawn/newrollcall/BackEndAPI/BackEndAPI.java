@@ -22,10 +22,15 @@ public abstract class BackEndAPI {
 
     private BackEndService backEndService = retrofit.create(BackEndService.class);
 
+    private ToDoAPI toDoAPI = retrofit.create(ToDoAPI.class);
+
     protected BackEndService getBackEndService() {
         return backEndService;
     }
 
+    public ToDoAPI getToDoAPI() {
+        return toDoAPI;
+    }
 
     protected abstract void run(AbstractRequest abstractRequest);
 

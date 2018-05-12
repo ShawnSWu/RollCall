@@ -1,6 +1,7 @@
 package com.shawn.newrollcall.FluxCenter.action;
 
 
+import com.shawn.newrollcall.BackEndAPI.action.APICreator;
 import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupCreator;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoCreator;
 import com.shawn.newrollcall.MainView.Profile.action.AccountInfoCreator;
@@ -10,6 +11,7 @@ import com.shawn.newrollcall.RollCallDialog.action.RollCallDialogCreator;
 import com.shawn.newrollcall.ScanBLEModel.action.BleScannerCreator;
 import com.shawn.newrollcall.SharedPreferences.action.SharedPreferencesCreator;
 import com.shawn.newrollcall.Signup.action.SignUpCreator;
+import com.shawn.newrollcall.ToDo.action.ToDoCreator;
 import com.shawn.newrollcall.login.action.LoginAPICreator;
 
 /**
@@ -57,4 +59,11 @@ public class ActionCreatorCenter {
         return new NotificationCreator();
     }
 
+    public ToDoCreator getToDoCreator(){
+        return new ToDoCreator();
+    }
+
+    public APICreator getAPICreator(){
+        return new APICreator();
+    }
 }

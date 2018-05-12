@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.shawn.newrollcall.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,16 +17,16 @@ import java.util.List;
 
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoViewHolder> {
 
-    private List<ToDoNoteItem> toDoNoteItemList;
-
-    public ToDoAdapter(List<ToDoNoteItem> toDoNoteItemList) {
-        this.toDoNoteItemList = toDoNoteItemList;
-    }
+    private List<ToDoNoteItem> toDoNoteItemList=  new ArrayList<>();
 
     @Override
     public ToDoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_todo_recyclerview, parent, false);
         return new ToDoViewHolder(view);
+    }
+
+    public void update(List<ToDoNoteItem> toDoNoteItemList) {
+        this.toDoNoteItemList = toDoNoteItemList;
     }
 
     @Override

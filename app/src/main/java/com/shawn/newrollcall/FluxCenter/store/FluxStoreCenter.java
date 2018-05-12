@@ -1,6 +1,7 @@
 package com.shawn.newrollcall.FluxCenter.store;
 
 
+import com.shawn.newrollcall.BackEndAPI.store.APIStore;
 import com.shawn.newrollcall.DeviceListInGroup.store.DeviceListInGroupStore;
 import com.shawn.newrollcall.MainView.GroupList.store.GroupListInfoStore;
 import com.shawn.newrollcall.MainView.Profile.store.AccountInfoStore;
@@ -10,6 +11,7 @@ import com.shawn.newrollcall.RollCallDialog.store.RollCallDialogStore;
 import com.shawn.newrollcall.ScanBLEModel.store.BleScannerStore;
 import com.shawn.newrollcall.SharedPreferences.store.SharedPreferencesStore;
 import com.shawn.newrollcall.Signup.store.SignUpAPIStore;
+import com.shawn.newrollcall.ToDo.store.ToDoStore;
 import com.shawn.newrollcall.login.store.LoginAPIStore;
 
 /**
@@ -66,6 +68,14 @@ public class FluxStoreCenter {
                 store = new NotificationStore();
                 break;
 
+            case FluxStoreType.TODO:
+                store = new ToDoStore();
+                break;
+
+            case FluxStoreType.BACKEND_API:
+                store = new APIStore();
+                break;
+
         }
 
 
@@ -116,4 +126,14 @@ public class FluxStoreCenter {
     public NotificationStore getNotificationStore(){
         return getStore(FluxStoreType.NOTIFICATION);
     }
+
+    public ToDoStore getToDoStore(){
+        return getStore(FluxStoreType.TODO);
+    }
+
+    public APIStore getAPIStore(){
+        return getStore(FluxStoreType.BACKEND_API);
+    }
+
+
 }

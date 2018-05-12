@@ -68,6 +68,16 @@
     <string name="setbledrive_title">設定集合時間</string>
     <string name="todo_message_title">待辦事項</string>
     <string name="todo_message_empty_massage">還沒有任何待辦事項</string>
+
+    <string name="reset_remind">重設提醒</string>
+    <string name="edit_content">編輯內容</string>
+    <string name="delete_todo">刪除</string>
+    <string name="delete_success">刪除成功</string>
+    <string name="modify_success">修改成功</string>
+
+    <string name="server_error">伺服器錯誤，請稍後再試</string>
+
+    <string name="new_todo">新增便條紙</string>
     <string name="calender">日 程</string>
 
     <string name="add_success">新增成功</string>
