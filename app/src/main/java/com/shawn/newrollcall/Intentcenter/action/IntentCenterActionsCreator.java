@@ -176,6 +176,7 @@ public class IntentCenterActionsCreator extends FluxActionCreator {
         bundle = new Bundle();
         bundle.putString(WriteDataToDeviceActivity.CHOOSE_SECOND ,chooseSeconds);
         bundle.putSerializable(WriteDataToDeviceActivity.DEVICE_ARRAYLIST, (Serializable)bleDeviceItemList);
+        bundle.putString(WriteDataToDeviceActivity.GROUP_LIST_NAME ,chooseSeconds);
         addAction(newAction(
                 IntentCenterActionsType.INTENT_WRITE_DATA_TO_DEVICE_SERVICE,
                 new IntentEvent.Builder()

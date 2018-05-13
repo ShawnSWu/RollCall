@@ -1,6 +1,7 @@
 package com.shawn.newrollcall.FluxCenter.action;
 
 
+import com.shawn.newrollcall.AlarmClock.action.AlarmClockCreator;
 import com.shawn.newrollcall.BackEndAPI.action.APICreator;
 import com.shawn.newrollcall.DeviceListInGroup.action.DeviceListInGroupCreator;
 import com.shawn.newrollcall.MainView.GroupList.action.GroupListInfoCreator;
@@ -65,5 +66,9 @@ public class ActionCreatorCenter {
 
     public APICreator getAPICreator(){
         return new APICreator();
+    }
+
+    public AlarmClockCreator getAlarmClockCreator(){
+        return new AlarmClockCreator();
     }
 }

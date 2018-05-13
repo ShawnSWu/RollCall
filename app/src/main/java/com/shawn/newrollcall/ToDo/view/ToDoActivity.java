@@ -14,6 +14,7 @@ import com.shawn.newrollcall.BackEndAPI.action.APIType;
 import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxAction;
 import com.shawn.newrollcall.FluxCenter.view.AppBaseActivity;
+import com.shawn.newrollcall.Notification.action.NotificationType;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.ToDo.action.ToDoActionType;
 import com.shawn.newrollcall.databinding.ActivityTodoBinding;
@@ -147,6 +148,19 @@ public class ToDoActivity extends AppBaseActivity {
             case APIType.SERVER_ERROR:
                 toast(getString(R.string.server_error));
                 break;
+
+            case ToDoActionType.UPDATE_FINSH_TODO_SUCCESS:
+                AppFluxCenter.getActionCreator().getToDoCreator().getToDoData(account,password);
+                break;
+
+            case NotificationType.TODO_NOTIFICATION:
+                String content = (String)fluxAction.getData()[3];
+                String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(this);
+                String password = AppFluxCenter.getStore().getSharedPreferences().getSavedPassword(this);
+                AppFluxCenter.getActionCreator().getToDoCreator().updateFinshToDo(account,password,content,1);
+                break;
+
+
         }
 
     }
@@ -155,11 +169,13 @@ public class ToDoActivity extends AppBaseActivity {
     public void onFluxStoreRegistered() {
         AppFluxCenter.getStore().getToDoStore().register(this);
         AppFluxCenter.getStore().getAPIStore().register(this);
+        AppFluxCenter.getStore().getAlarmClockStore().register(this);
     }
 
     @Override
     public void onFluxStoreUnregistered() {
         AppFluxCenter.getStore().getToDoStore().unRegister(this);
         AppFluxCenter.getStore().getAPIStore().unRegister(this);
+        AppFluxCenter.getStore().getAlarmClockStore().register(this);
     }
 }

@@ -11,17 +11,22 @@ import com.shawn.newrollcall.RollCallDialog.action.RollCallDialogActionType;
 
 public class RollCallDialogStore  extends Store {
 
+    private long timeSeconds = 0;
 
     @Override
     public void onFluxActionHandling(FluxAction fluxAction) {
 
         switch (fluxAction.getType()){
 
-            case RollCallDialogActionType.ADD_DATA_FROM_CREATE_GROUP:
-
+            case RollCallDialogActionType.CREATE_TODO:
+                long seconds =(long)fluxAction.getData()[0];
                 break;
         }
 
+    }
+
+    public long getTimeSeconds(){
+        return timeSeconds;
     }
 
 

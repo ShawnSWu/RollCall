@@ -19,4 +19,5 @@ public interface FluxStoreType {
     String NOTIFICATION = "NOTIFICATION";
     String TODO = "TODO";
     String BACKEND_API = "BACKEND_API";
+    String ALARMCLOCK = "ALARMCLOCK";
 }

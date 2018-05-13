@@ -24,7 +24,7 @@ public class WriteDataToDeviceActivity extends RollCallActivity {
 
     public  static final String DEVICE_ARRAYLIST="Device_ArrayList";
 
-    private String chooseSeconds;
+    private String chooseSeconds,groupName;
 
     private static SpotsDialog spotsDialog = null;
 
@@ -34,7 +34,7 @@ public class WriteDataToDeviceActivity extends RollCallActivity {
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         chooseSeconds = bundle.getString(WriteDataToDeviceActivity.CHOOSE_SECOND);
-
+        groupName = bundle.getString(WriteDataToDeviceActivity.GROUP_LIST_NAME);
         binding.btnok.setText(getString(R.string.setting));
         spotsDialog = new SpotsDialog(WriteDataToDeviceActivity.this,R.style.connect_loding);
     }
@@ -50,7 +50,7 @@ public class WriteDataToDeviceActivity extends RollCallActivity {
                         .showMakeSureSetDeviceDailog(getString(R.string.set_time),
                                 String.format(getString(R.string.make_sure_set_device),rollCallBLEScanner.getDeviceList().size()),
                                 WriteDataToDeviceActivity.this,chooseSeconds
-                                ,rollCallBLEScanner.getDeviceList());
+                                ,rollCallBLEScanner.getDeviceList(),groupName);
             }
         };
     }

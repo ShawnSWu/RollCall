@@ -4,6 +4,7 @@ import com.shawn.newrollcall.ToDo.event.CreateToDoRequestBody;
 import com.shawn.newrollcall.ToDo.event.DeleteToDoRequestBody;
 import com.shawn.newrollcall.ToDo.event.EditToDoContentRequestBody;
 import com.shawn.newrollcall.ToDo.event.GetToDoDateRequestBody;
+import com.shawn.newrollcall.ToDo.event.UpdateFinshToDoRequestBody;
 import com.shawn.newrollcall.ToDo.view.ToDoNoteItem;
 
 import java.util.ArrayList;
@@ -36,4 +37,9 @@ public interface ToDoAPI {
     @Headers("Content-Type: application/json")
     @POST("/todo/deletetodo")
     Call<Boolean> deleteToDo(@Body DeleteToDoRequestBody deleteToDoRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST("/todo/updatefinshtodo")
+    Call<Boolean> updateFinshToDo(@Body UpdateFinshToDoRequestBody updateFinshToDoRequestBody);
+
 }

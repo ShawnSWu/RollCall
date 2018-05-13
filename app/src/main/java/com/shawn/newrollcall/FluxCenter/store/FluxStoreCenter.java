@@ -1,6 +1,7 @@
 package com.shawn.newrollcall.FluxCenter.store;
 
 
+import com.shawn.newrollcall.AlarmClock.store.AlarmClockStore;
 import com.shawn.newrollcall.BackEndAPI.store.APIStore;
 import com.shawn.newrollcall.DeviceListInGroup.store.DeviceListInGroupStore;
 import com.shawn.newrollcall.MainView.GroupList.store.GroupListInfoStore;
@@ -76,6 +77,10 @@ public class FluxStoreCenter {
                 store = new APIStore();
                 break;
 
+            case FluxStoreType.ALARMCLOCK:
+                store = new AlarmClockStore();
+                break;
+
         }
 
 
@@ -133,6 +138,10 @@ public class FluxStoreCenter {
 
     public APIStore getAPIStore(){
         return getStore(FluxStoreType.BACKEND_API);
+    }
+
+    public AlarmClockStore getAlarmClockStore(){
+        return getStore(FluxStoreType.ALARMCLOCK);
     }
 
 

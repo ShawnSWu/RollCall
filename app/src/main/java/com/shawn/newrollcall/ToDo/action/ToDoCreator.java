@@ -5,6 +5,7 @@ import com.shawn.newrollcall.ToDo.event.CreateToDoEvent;
 import com.shawn.newrollcall.ToDo.event.DeleteToDoEvent;
 import com.shawn.newrollcall.ToDo.event.EditToDoContentEvent;
 import com.shawn.newrollcall.ToDo.event.GetToDoDateEvent;
+import com.shawn.newrollcall.ToDo.event.UpdateFinshToDoEvent;
 import com.shawn.newrollcall.ToDo.view.ToDoNoteItem;
 
 
@@ -33,8 +34,8 @@ public class ToDoCreator extends FluxActionCreator {
         addAction(newAction(ToDoActionType.CREATE_TODO_SUCCESS));
     }
 
-    public void updateFinshToDo(String account,String password,String todo_title,String todo_createtime) {
-        addAction(newAction(ToDoActionType.UPDATE_FINSH_TODO,account,password,todo_title,todo_createtime));
+    public void updateFinshToDo(String account,String password,String todo_title,int  todo_isFinsh) {
+        addAction(newAction(ToDoActionType.UPDATE_FINSH_TODO,new UpdateFinshToDoEvent(account,password,todo_title,todo_isFinsh)));
     }
 
     public void updateFinshToDoSuccess() {
