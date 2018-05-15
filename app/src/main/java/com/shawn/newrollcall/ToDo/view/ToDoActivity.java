@@ -154,12 +154,8 @@ public class ToDoActivity extends AppBaseActivity {
                 break;
 
             case NotificationType.TODO_NOTIFICATION:
-                String content = (String)fluxAction.getData()[3];
-                String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(this);
-                String password = AppFluxCenter.getStore().getSharedPreferences().getSavedPassword(this);
-                AppFluxCenter.getActionCreator().getToDoCreator().updateFinshToDo(account,password,content,1);
+                AppFluxCenter.getActionCreator().getToDoCreator().getToDoData(account,password);
                 break;
-
 
         }
 
@@ -170,6 +166,7 @@ public class ToDoActivity extends AppBaseActivity {
         AppFluxCenter.getStore().getToDoStore().register(this);
         AppFluxCenter.getStore().getAPIStore().register(this);
         AppFluxCenter.getStore().getAlarmClockStore().register(this);
+        AppFluxCenter.getStore().getNotificationStore().register(this);
     }
 
     @Override
@@ -177,5 +174,6 @@ public class ToDoActivity extends AppBaseActivity {
         AppFluxCenter.getStore().getToDoStore().unRegister(this);
         AppFluxCenter.getStore().getAPIStore().unRegister(this);
         AppFluxCenter.getStore().getAlarmClockStore().register(this);
+        AppFluxCenter.getStore().getNotificationStore().unRegister(this);
     }
 }

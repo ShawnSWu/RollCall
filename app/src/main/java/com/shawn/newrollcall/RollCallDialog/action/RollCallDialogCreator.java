@@ -21,7 +21,6 @@ import com.shawn.newrollcall.FluxCenter.AppFluxCenter;
 import com.shawn.newrollcall.FluxCenter.action.FluxActionCreator;
 import com.shawn.newrollcall.R;
 import com.shawn.newrollcall.ScanBLEModel.BleDeviceItem;
-import com.shawn.newrollcall.ScanBLEModel.view.SetDeviceRemindActivity;
 import com.shawn.newrollcall.util.AlarmClockUtil;
 import java.util.Calendar;
 import java.util.List;
@@ -135,7 +134,7 @@ public class RollCallDialogCreator extends FluxActionCreator {
                 AppFluxCenter
                         .getActionCreator()
                         .getAlarmClockCreator()
-                        .setAlarmClockForTodo(time,view.getContext(),SetDeviceRemindActivity.class,groupName);
+                        .setAlarmClock(time,view.getContext(),AlarmBroadcast.class,groupName);
 
                 rollCallDailog.dismiss();
             }
@@ -198,7 +197,7 @@ public class RollCallDialogCreator extends FluxActionCreator {
                     AppFluxCenter
                             .getActionCreator()
                             .getAlarmClockCreator()
-                            .setAlarmClockForTodo(time,context
+                            .setAlarmClock(time,context
                                     ,AlarmBroadcast.class,todo_edit.getText().toString());
                     AppFluxCenter
                             .getActionCreator()

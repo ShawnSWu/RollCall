@@ -21,7 +21,7 @@ import java.util.Calendar;
 public class AlarmClockCreator extends FluxActionCreator {
 
 
-    public void setAlarmClockForTodo(int timeSeconds,Context context,Class targetClass,String todo_content) {
+    public void setAlarmClock(int timeSeconds,Context context,Class targetClass,String todo_content) {
         addAction(newAction(AlarmClockType.SET_ALARMCLOCK_FOR_TODO,timeSeconds,context,targetClass));
 
         Intent intent=new Intent(context,targetClass);

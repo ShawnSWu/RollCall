@@ -24,12 +24,13 @@ public class AlarmBroadcast extends BroadcastReceiver {
         synchronized (this) {
             String title= intent.getStringExtra(TODO_TITLE_TAG);
             String content= intent.getStringExtra(TODO_CONTENT_TAG);
-            int id = (int)(Math.random()*9000);
             AppFluxCenter
                     .getActionCreator()
                     .getNotificationCreator()
-                    .toDoNotification(context,id,title,content);
-
+                    .toDoNotification(context,content.hashCode(),title,content);
+            String account = AppFluxCenter.getStore().getSharedPreferences().getSavedAccount(context);
+            String password = AppFluxCenter.getStore().getSharedPreferences().getSavedPassword(context);
+            AppFluxCenter.getActionCreator().getToDoCreator().updateFinshToDo(account,password,content,1);
         }
     }
 
