@@ -56,11 +56,11 @@ public class ToDoActivity extends AppBaseActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         binding.todoRecyclerview.setLayoutManager(layoutManager);
 
-        binding.createGroupFab.attachToRecyclerView(binding.todoRecyclerview);
-        binding.createGroupFab.setColorNormal(getResources().getColor(R.color.theme_green));
-        binding.createGroupFab.setColorPressed(getResources().getColor(R.color.btn_press_green));
-        binding.createGroupFab.setColorRipple(getResources().getColor(R.color.app_background_color));
-        binding.createGroupFab.setOnClickListener(getCreateToDoNoteFabListener());
+        binding.createTodoFab.attachToRecyclerView(binding.todoRecyclerview);
+        binding.createTodoFab.setColorNormal(getResources().getColor(R.color.theme_green));
+        binding.createTodoFab.setColorPressed(getResources().getColor(R.color.btn_press_green));
+        binding.createTodoFab.setColorRipple(getResources().getColor(R.color.app_background_color));
+        binding.createTodoFab.setOnClickListener(getCreateToDoNoteFabListener());
 
         doAdapter = new ToDoAdapter();
         binding.todoRecyclerview.setAdapter(doAdapter);
@@ -124,6 +124,9 @@ public class ToDoActivity extends AppBaseActivity {
                 List<ToDoNoteItem> toDoNoteItems = (List<ToDoNoteItem>)fluxAction.getData()[0];
                 doAdapter.update(toDoNoteItems);
                 doAdapter.notifyDataSetChanged();
+                if(!binding.createTodoFab.isVisible()){
+                    binding.createTodoFab.show();
+                }
                 if(toDoNoteItems.isEmpty())
                     binding.emptyview.setVisibility(View.VISIBLE);
                 else
