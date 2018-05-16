@@ -30,13 +30,13 @@ public class InsertNewDeviceDataEvent extends BackEndAPI {
 
         InsertNewDeviceDataRequestBody insertNewDeviceDataRequestBody = (InsertNewDeviceDataRequestBody)abstractRequest;
 
-        Call<String> call = getBackEndService().insertNewDataToGroup(insertNewDeviceDataRequestBody);
+        Call<Boolean> call = getBackEndService().insertNewDataToGroup(insertNewDeviceDataRequestBody);
 
-        call.enqueue(new Callback<String>() {
+        call.enqueue(new Callback<Boolean>() {
             @Override
-            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+            public void onResponse(@NonNull Call<Boolean> call, @NonNull Response<Boolean> response) {
                 if(response.isSuccessful()) {
-                    if (response.body().equals("insert Success")) {
+                    if (response.body()) {
                         if(itemPosition == listsize-1) {
                             AppFluxCenter.getActionCreator().getDeviceListInGroupCreator().insertNewDeviceDatatoGroupSuccess();
                         }
@@ -46,7 +46,7 @@ public class InsertNewDeviceDataEvent extends BackEndAPI {
             }
 
             @Override
-            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<Boolean> call, @NonNull Throwable t) {
 
             }
         });

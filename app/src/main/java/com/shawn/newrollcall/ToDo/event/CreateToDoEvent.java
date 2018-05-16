@@ -34,6 +34,8 @@ public class CreateToDoEvent extends BackEndAPI {
                 if(response.isSuccessful()) {
                     if(response.body()) {
                         AppFluxCenter.getActionCreator().getToDoCreator().createToDoSuccess();
+                    }else{
+                        AppFluxCenter.getActionCreator().getAPICreator().serverError();
                     }
                 }
             }

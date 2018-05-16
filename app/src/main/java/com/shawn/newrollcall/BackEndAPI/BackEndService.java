@@ -67,7 +67,7 @@ public interface BackEndService {
 
     @Headers("Content-Type: application/json")
     @POST("/list/insertnewdatatolist")
-    Call<String> insertNewDataToGroup(@Body InsertNewDeviceDataRequestBody insertNewDeviceDataRequestBody);
+    Call<Boolean> insertNewDataToGroup(@Body InsertNewDeviceDataRequestBody insertNewDeviceDataRequestBody);
 
     @Headers("Content-Type: application/json")
     @POST("/list/getlistdata")
