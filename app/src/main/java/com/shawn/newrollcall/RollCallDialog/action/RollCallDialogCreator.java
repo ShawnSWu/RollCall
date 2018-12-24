@@ -153,6 +153,9 @@ public class RollCallDialogCreator extends FluxActionCreator {
                     .create();
         }
         if(!rollCallDailog.isShowing()) {
+            rollCallDailog = new AlertDialog.Builder(activity)
+                    .setView(dialogView)
+                    .create();
             rollCallDailog.show();
         }
     }

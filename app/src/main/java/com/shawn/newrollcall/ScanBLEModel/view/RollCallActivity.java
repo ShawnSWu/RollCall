@@ -100,12 +100,14 @@ public class RollCallActivity extends ScanActivity {
 
         synchronized (this){
             for(int i =0;i< rollCallBLEScanner.getDeviceList().size();i++) {
-                String listAddress = deviceListInGroupItems.get(i).getDeviceAddress();
+                if(!deviceListInGroupItems.isEmpty()){
+                    String listAddress = deviceListInGroupItems.get(i).getDeviceAddress();
 
-                String scanAddress = scanItems.get(i).getDeviceAddress();
+                    String scanAddress = scanItems.get(i).getDeviceAddress();
 
-                if(listAddress.equals(scanAddress)) {
-                    deviceListInGroupItems.remove(deviceListInGroupItems.get(i));
+                    if (listAddress.equals(scanAddress)) {
+                        deviceListInGroupItems.remove(deviceListInGroupItems.get(i));
+                    }
                 }
             }
         }

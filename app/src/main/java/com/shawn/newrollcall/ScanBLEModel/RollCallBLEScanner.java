@@ -41,13 +41,15 @@ public class RollCallBLEScanner extends Scanner {
                 String deviceAddress = bluetoothDevice.getAddress();
 
                 if(!deviceAddressList.contains(deviceAddress)) {
-                    if(bluetoothDevice.getName().contains(ROLLCALL)) {
-                        deviceAddressList.add(deviceAddress);
-                        deviceItemList.add(bluetoothDevice);
-                        AppFluxCenter
-                                .getActionCreator()
-                                .getBleScannerCreator()
-                                .updateFindNewDevice(deviceItemList,deviceAddress,bluetoothDevice.getName());
+                    if(bluetoothDevice.getName() != null) {
+                        if (bluetoothDevice.getName().contains(ROLLCALL)) {
+                            deviceAddressList.add(deviceAddress);
+                            deviceItemList.add(bluetoothDevice);
+                            AppFluxCenter
+                                    .getActionCreator()
+                                    .getBleScannerCreator()
+                                    .updateFindNewDevice(deviceItemList, deviceAddress, bluetoothDevice.getName());
+                        }
                     }
                 }
             }
